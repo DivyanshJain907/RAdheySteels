@@ -11,9 +11,9 @@ interface Settings {
 
 export default function Footer() {
   const [settings, setSettings] = useState<Settings>({
-    shopName: 'MetalForge',
-    email: 'info@metalforge.com',
-    phone: '+1 (555) 000-0000',
+    shopName: 'Radhey Raman Steel Suppliers',
+    email: 'info@radheysteels.com',
+    phone: '+91 (555) 000-0000',
   });
 
   useEffect(() => {
@@ -25,9 +25,9 @@ export default function Footer() {
         if (response.ok) {
           const data = await response.json();
           setSettings({
-            shopName: data.shopName || 'MetalForge',
-            email: data.email || 'info@metalforge.com',
-            phone: data.phone || '+1 (555) 000-0000',
+            shopName: data.shopName || 'Radhey Raman Steel Suppliers',
+            email: data.email || 'info@radheysteels.com',
+            phone: data.phone || '+91 (555) 000-0000',
           });
         }
       } catch (error) {
@@ -42,37 +42,40 @@ export default function Footer() {
     <motion.footer
       initial={{ y: 100 }}
       whileInView={{ y: 0 }}
-      className="bg-dark border-t border-gold/20 text-lightGray py-12"
+      className="bg-cream border-t border-gray-200 text-darkGray py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-gold font-bold text-lg mb-4">{settings.shopName}</h3>
-            <p className="text-sm text-gray-400">
-              Premium metal products crafted with precision and excellence.
+            <h3 className="text-blue font-bold text-lg mb-4">{settings.shopName}</h3>
+            <p className="text-sm text-gray-600">
+              Authorised dealer of RINL/SAIL in UP. The foundation of trust since 1979.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#products" className="hover:text-gold transition">Products</a></li>
-              <li><a href="#contact" className="hover:text-gold transition">Contact</a></li>
-              <li><a href="/admin" className="hover:text-gold transition">Admin</a></li>
+            <h4 className="text-darkGray font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li><a href="#products" className="hover:text-blue transition">Products</a></li>
+              <li><a href="#contact" className="hover:text-blue transition">Contact</a></li>
+              <li><a href="/admin" className="hover:text-blue transition">Admin</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <p className="text-sm text-gray-400">
+            <h4 className="text-darkGray font-semibold mb-4">Contact</h4>
+            <p className="text-sm text-gray-600">
               Email: {settings.email}<br />
               Phone: {settings.phone}
             </p>
           </div>
         </div>
 
-        <div className="border-t border-gold/20 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-200 pt-8 text-center text-sm text-gray-500">
           <p>&copy; 2026 {settings.shopName}. All rights reserved.</p>
+          <p className="mt-2">
+            Developed by <a href="https://divyanshjainportfolio.vercel.app" target="_blank" rel="noopener noreferrer" className="text-blue hover:underline">Jain Agency</a>
+          </p>
         </div>
       </div>
     </motion.footer>

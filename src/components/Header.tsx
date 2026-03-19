@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Header() {
-  const [shopName, setShopName] = useState('MetalForge');
+  const [shopName, setShopName] = useState('Radhey Raman Steel Suppliers');
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -16,7 +16,7 @@ export default function Header() {
         if (response.ok) {
           const data = await response.json();
           if (data.shopName) {
-            setShopName(data.shopName);
+            setShopName(data.shopName || 'Radhey Raman Steel Suppliers');
           }
         }
       } catch (error) {
@@ -31,12 +31,12 @@ export default function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 w-full bg-dark/95 backdrop-blur-sm z-50 border-b border-gold/20"
+      className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-sm"
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <motion.div
-            className="text-2xl font-bold text-gold"
+            className="text-2xl font-bold text-blue-600"
             whileHover={{ scale: 1.05 }}
           >
             ⚔️ {shopName}
@@ -44,20 +44,20 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex gap-8">
-          <Link href="/" className="text-white hover:text-gold transition">
+          <Link href="/" className="text-darkGray hover:text-blue-600 transition font-medium">
             Home
           </Link>
-          <Link href="/#products" className="text-white hover:text-gold transition">
+          <Link href="/#products" className="text-darkGray hover:text-blue-600 transition font-medium">
             Products
           </Link>
-          <Link href="/#contact" className="text-white hover:text-gold transition">
+          <Link href="/#contact" className="text-darkGray hover:text-blue-600 transition font-medium">
             Contact
           </Link>
         </nav>
 
         <Link
           href="/admin"
-          className="bg-gold text-dark px-6 py-2 rounded font-semibold hover:bg-gold/90 transition"
+          className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md"
         >
           Admin
         </Link>

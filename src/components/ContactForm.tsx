@@ -56,7 +56,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-darkGray text-white placeholder-gray-500 rounded border border-gold/30 focus:border-gold outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-500 outline-none transition"
         />
       </div>
 
@@ -68,7 +68,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-darkGray text-white placeholder-gray-500 rounded border border-gold/30 focus:border-gold outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-500 outline-none transition"
         />
       </div>
 
@@ -79,7 +79,7 @@ export default function ContactForm() {
           placeholder="Your Phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-darkGray text-white placeholder-gray-500 rounded border border-gold/30 focus:border-gold outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-500 outline-none transition"
         />
       </div>
 
@@ -91,7 +91,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 bg-darkGray text-white placeholder-gray-500 rounded border border-gold/30 focus:border-gold outline-none transition resize-none"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue-600 focus:ring-1 focus:ring-blue-500 outline-none transition resize-none"
         />
       </div>
 
@@ -100,7 +100,7 @@ export default function ContactForm() {
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={loading}
-        className="w-full bg-gold text-dark py-3 rounded font-bold hover:bg-gold/90 transition disabled:opacity-50"
+        className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition disabled:opacity-50 shadow-md"
       >
         {loading ? 'Sending...' : 'Send Message'}
       </motion.button>
@@ -109,9 +109,9 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-green-500/20 border border-green-500 text-green-300 p-3 rounded text-center"
+          className="bg-green-100 border border-green-300 text-green-700 p-3 rounded-lg text-center"
         >
-          Message sent successfully! We&apos;ll be in touch soon.
+          Message sent successfully! We'll be in touch soon.
         </motion.div>
       )}
     </motion.form>

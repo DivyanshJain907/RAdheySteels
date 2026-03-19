@@ -27,8 +27,8 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-dark flex items-center justify-center">
-        <div className="animate-spin text-gold text-3xl">⟳</div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="animate-spin text-blue text-3xl">⟳</div>
       </div>
     );
   }
@@ -38,11 +38,11 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-white">
       {/* Admin Header */}
-      <motion.header className="bg-darkGray border-b border-gold/30 sticky top-0 z-40">
+      <motion.header className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gold">MetalForge Admin Dashboard</h1>
+          <h1 className="text-2xl font-bold text-black">Radhey Steel Admin Dashboard</h1>
           <button
             onClick={handleLogout}
             className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition"
@@ -53,7 +53,7 @@ export default function AdminDashboard() {
       </motion.header>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-gold/20 sticky top-16 z-30 bg-dark/50 backdrop-blur">
+      <div className="border-b border-gray-200 sticky top-[73px] z-30 bg-white/95 backdrop-blur">
         <div className="max-w-7xl mx-auto px-4 flex">
           {['products', 'contacts', 'settings'].map((tab) => (
             <button
@@ -61,8 +61,8 @@ export default function AdminDashboard() {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-4 font-semibold transition border-b-2 capitalize ${
                 activeTab === tab
-                  ? 'text-gold border-gold'
-                  : 'text-gray-400 border-transparent hover:text-gold'
+                  ? 'text-blue border-blue'
+                  : 'text-gray-500 border-transparent hover:text-blue'
               }`}
             >
               {tab}
@@ -166,11 +166,11 @@ function ProductsTab() {
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold">Products Management</h2>
+        <h2 className="text-3xl font-bold text-black">Products Management</h2>
         <motion.button
           whileHover={{ scale: 1.05 }}
           onClick={() => setShowForm(!showForm)}
-          className="bg-gold text-dark px-6 py-3 rounded font-bold"
+          className="bg-blue text-white px-6 py-3 rounded font-bold"
         >
           {showForm ? 'Cancel' : '+ Add Product'}
         </motion.button>
@@ -180,7 +180,7 @@ function ProductsTab() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-darkGray rounded-lg p-8 mb-8 border border-gold/30"
+          className="bg-white rounded-lg p-8 mb-8 border border-gray-200 shadow-lg"
         >
           <form onSubmit={handleAddProduct} className="grid grid-cols-2 gap-4">
             <input
@@ -189,7 +189,7 @@ function ProductsTab() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
             />
 
             <input
@@ -198,7 +198,7 @@ function ProductsTab() {
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
               required
-              className="px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
             />
 
             <input
@@ -207,7 +207,7 @@ function ProductsTab() {
               value={formData.price}
               onChange={(e) => setFormData({ ...formData, price: e.target.value })}
               required
-              className="px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
             />
 
             <textarea
@@ -215,7 +215,7 @@ function ProductsTab() {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none resize-none"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
               rows={3}
             />
 
@@ -224,7 +224,7 @@ function ProductsTab() {
               placeholder="Image URL"
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="col-span-2 px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
             />
 
             <label className="flex items-center gap-2 col-span-2">
@@ -239,7 +239,7 @@ function ProductsTab() {
 
             <button
               type="submit"
-              className="col-span-2 bg-gold text-dark py-3 rounded font-bold hover:bg-gold/90 transition"
+              className="col-span-2 bg-blue text-white py-3 rounded font-bold hover:bg-primary transition"
             >
               Add Product
             </button>
@@ -248,17 +248,17 @@ function ProductsTab() {
       )}
 
       {loading ? (
-        <div className="text-center py-20">Loading...</div>
+        <div className="text-center py-20 text-gray-600">Loading...</div>
       ) : products.length > 0 ? (
         <div className="space-y-4">
           {products.map((product) => (
             <motion.div
               key={product._id}
-              className="bg-darkGray rounded-lg p-4 flex justify-between items-center border border-gold/20"
+              className="bg-white rounded-lg p-4 flex justify-between items-center border border-gray-200 shadow-sm"
             >
               <div>
-                <h3 className="text-xl font-bold">{product.name}</h3>
-                <p className="text-gray-400">{product.category} - ${product.price}</p>
+                <h3 className="text-xl font-bold text-black">{product.name}</h3>
+                <p className="text-gray-600">{product.category} - ${product.price}</p>
               </div>
 
               <button
@@ -271,7 +271,7 @@ function ProductsTab() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-gray-400">No products yet</div>
+        <div className="text-center py-20 text-gray-600">No products yet</div>
       )}
     </div>
   );
@@ -306,33 +306,33 @@ function ContactsTab() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-8">Contact Messages</h2>
+      <h2 className="text-3xl font-bold mb-8 text-black">Contact Messages</h2>
 
       {loading ? (
-        <div className="text-center py-20">Loading...</div>
+        <div className="text-center py-20 text-gray-600">Loading...</div>
       ) : contacts.length > 0 ? (
         <div className="space-y-4">
           {contacts.map((contact) => (
             <motion.div
               key={contact._id}
-              className="bg-darkGray rounded-lg p-6 border border-gold/20 hover:border-gold/40 transition"
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-bold">{contact.name}</h3>
-                  <p className="text-gold">{contact.email}</p>
-                  {contact.phone && <p className="text-gray-400">{contact.phone}</p>}
+                  <h3 className="text-xl font-bold text-black">{contact.name}</h3>
+                  <p className="text-blue">{contact.email}</p>
+                  {contact.phone && <p className="text-gray-600">{contact.phone}</p>}
                 </div>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-gray-500">
                   {new Date(contact.createdAt).toLocaleDateString()}
                 </span>
               </div>
-              <p className="text-gray-300">{contact.message}</p>
+              <p className="text-gray-700">{contact.message}</p>
             </motion.div>
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 text-gray-400">No messages yet</div>
+        <div className="text-center py-20 text-gray-600">No messages yet</div>
       )}
     </div>
   );
@@ -409,49 +409,49 @@ function SettingsTab() {
   };
 
   if (loading) {
-    return <div className="text-center py-20">Loading settings...</div>;
+    return <div className="text-center py-20 text-gray-600">Loading settings...</div>;
   }
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-8">Settings</h2>
+      <h2 className="text-3xl font-bold mb-8 text-black">Settings</h2>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bg-darkGray rounded-lg p-8 border border-gold/30"
+        className="bg-white rounded-lg p-8 border border-gray-200 shadow-lg"
       >
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold mb-2">Shop Information</h3>
+            <h3 className="text-xl font-bold mb-2 text-black">Shop Information</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Shop Name</label>
+                <label className="block text-sm text-gray-700 mb-2">Shop Name</label>
                 <input
                   type="text"
                   value={settings.shopName}
                   onChange={(e) => setSettings({ ...settings, shopName: e.target.value })}
-                  className="w-full px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Email</label>
+                <label className="block text-sm text-gray-700 mb-2">Email</label>
                 <input
                   type="email"
                   value={settings.email}
                   onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                 />
               </div>
 
               <div>
-                <label className="block text-sm text-gray-400 mb-2">Phone</label>
+                <label className="block text-sm text-gray-700 mb-2">Phone</label>
                 <input
                   type="tel"
                   value={settings.phone}
                   onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-dark text-white rounded border border-gold/30 focus:border-gold outline-none"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                 />
               </div>
             </div>
@@ -474,7 +474,7 @@ function SettingsTab() {
           <button
             onClick={handleSaveSettings}
             disabled={saving}
-            className="bg-gold text-dark px-6 py-3 rounded font-bold hover:bg-gold/90 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-blue text-white px-6 py-3 rounded font-bold hover:bg-primary transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? 'Saving...' : 'Save Changes'}
           </button>

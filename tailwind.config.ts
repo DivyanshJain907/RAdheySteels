@@ -9,11 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        gold: "#D4AF37",
-        silver: "#C0C0C0",
-        dark: "#1a1a1a",
-        darkGray: "#2d2d2d",
-        lightGray: "#f5f5f5",
+        blue: "#3B82F6",
+        primary: "#1E40AF",
+        silver: "#E8E8E8",
+        dark: "#0F1117",
+        darkGray: "#1F2937",
+        lightGray: "#F3F4F6",
+        cream: "#FAFAF8",
+        stone: "#78716C",
       },
       fontFamily: {
         serif: ["Georgia", "serif"],

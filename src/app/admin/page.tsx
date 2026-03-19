@@ -37,23 +37,23 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-dark flex items-center justify-center px-4">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 pt-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="w-full max-w-md"
       >
-        <div className="bg-darkGray border border-gold/30 rounded-lg p-8">
-          <h1 className="text-3xl font-bold text-center mb-2 text-gold">
-            MetalForge Admin
+        <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-lg">
+          <h1 className="text-3xl font-bold text-center mb-2 text-black">
+            Radhey Raman Steel
           </h1>
-          <p className="text-gray-400 text-center mb-8">
-            Secure Access Only
+          <p className="text-gray-600 text-center mb-8">
+            Admin Portal
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="password" className="block text-sm font-medium mb-2">
+              <label htmlFor="password" className="block text-sm font-medium mb-2 text-darkGray">
                 Admin Password
               </label>
               <input
@@ -63,7 +63,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Enter your password"
-                className="w-full px-4 py-3 bg-dark text-white placeholder-gray-500 rounded border border-gold/30 focus:border-gold outline-none"
+                className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
               />
             </div>
 
@@ -71,7 +71,7 @@ export default function AdminLogin() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="bg-red-500/20 border border-red-500 text-red-300 p-3 rounded text-sm"
+                className="bg-red-50 border border-red-200 text-red-700 p-3 rounded text-sm"
               >
                 {error}
               </motion.div>
@@ -82,14 +82,14 @@ export default function AdminLogin() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full bg-gold text-dark py-3 rounded font-bold hover:bg-gold/90 transition disabled:opacity-50"
+              className="w-full bg-blue text-white py-3 rounded font-bold hover:bg-primary transition disabled:opacity-50"
             >
               {loading ? 'Logging in...' : 'Login'}
             </motion.button>
           </form>
         </div>
 
-        <p className="text-center text-gray-500 text-sm mt-8">
+        <p className="text-center text-gray-600 text-sm mt-8">
           Protected area. Unauthorized access is prohibited.
         </p>
       </motion.div>

@@ -25,10 +25,10 @@ export default function ProductCard({
   return (
     <motion.div
       whileHover={{ y: -10 }}
-      className="bg-darkGray rounded-lg overflow-hidden border border-gold/30 hover:border-gold/60 transition group"
+      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-blue transition group shadow-md hover:shadow-lg"
     >
       {/* Image Container */}
-      <div className="relative h-64 bg-dark overflow-hidden">
+      <div className="relative h-64 bg-gray-200 overflow-hidden">
         {image && (
           <Image
             src={image}
@@ -38,7 +38,7 @@ export default function ProductCard({
           />
         )}
         {featured && (
-          <div className="absolute top-4 right-4 bg-gold text-dark px-3 py-1 rounded-full text-xs font-bold">
+          <div className="absolute top-4 right-4 bg-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
             Featured
           </div>
         )}
@@ -46,18 +46,18 @@ export default function ProductCard({
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-gold text-sm uppercase tracking-widest mb-2">
+        <p className="text-blue text-sm uppercase tracking-widest mb-2 font-semibold">
           {category}
         </p>
-        <h3 className="text-white text-xl font-bold mb-2">{name}</h3>
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">{description}</p>
+        <h3 className="text-darkGray text-xl font-bold mb-2">{name}</h3>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
 
         <div className="flex items-center justify-between">
-          <span className="text-gold text-2xl font-bold">${price}</span>
+          <span className="text-blue text-2xl font-bold">Rs. {price}</span>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gold text-dark px-4 py-2 rounded font-semibold hover:bg-gold/90 transition"
+            className="bg-blue text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary transition shadow-md"
           >
             View
           </motion.button>
