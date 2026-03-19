@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import dbConnect from '@/lib/mongodb';
 import { Contact } from '@/models/Contact';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function GET(request: NextRequest) {
   try {
@@ -28,17 +31,20 @@ export async function POST(request: NextRequest) {
     await dbConnect();
     const body = await request.json();
 
-    // Send email using EmailJS
-    const emailData = {
-      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      template_params: {
-        from_name: body.name,
-        from_email: body.email,
-        message: body.message,
-      },
-    };
+    // Send email using Resend
+    await resend.emails.send({
+      from: 'noreply@radheysteels.com',
+      to: process.env.CONTACT_EMAIL || 'info@radheysteels.com',
+      subject: `New Contact Message from ${body.name}`,
+      html: `
+        <h2>New Contact Message</h2>
+        <p><strong>Name:</strong> ${body.name}</p>
+        <p><strong>Email:</strong> ${body.email}</p>
+        ${body.phone ? `<p><strong>Phone:</strong> ${body.phone}</p>` : ''}
+        <p><strong>Message:</strong></p>
+        <p>${body.message}</p>
+      `,
+    });
 
     // Save to database
     const contact = new Contact(body);
