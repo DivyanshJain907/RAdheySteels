@@ -12,6 +12,7 @@ import {
 import { Menu, MoveRight, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Header1() {
     const navigationItems = [
@@ -64,12 +65,19 @@ function Header1() {
     const [isOpen, setOpen] = useState(false);
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-white border-b border-gray-200 shadow-sm">
-            <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
-                <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
-                    <Link href="/">
-                        <Button variant="ghost" className="text-darkGray">Home</Button>
+            <div className="container relative mx-auto min-h-28 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
+                <div className="justify-start items-center gap-4 flex flex-row">
+                    <Link href="/" className="flex items-center gap-2">
+                        <Image 
+                            src="/logo.png" 
+                            alt="Radhey Raman Steels Logo" 
+                            width={120} 
+                            height={120}
+                            className="w-auto h-24"
+                            priority
+                        />
                     </Link>
-                    <NavigationMenu className="flex justify-start items-start">
+                    <NavigationMenu className="hidden lg:flex justify-start items-start">
                         <NavigationMenuList className="flex justify-start gap-4 flex-row">
                             {navigationItems.map((item) => (
                                 <NavigationMenuItem key={item.title}>

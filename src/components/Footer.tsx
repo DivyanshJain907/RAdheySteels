@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface Settings {
   shopName?: string;
@@ -47,6 +48,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
+            <Image 
+              src="/logo.png" 
+              alt="Radhey Raman Steels Logo" 
+              width={140} 
+              height={140}
+              className="w-auto h-28 mb-4"
+            />
             <h3 className="text-blue font-bold text-lg mb-4">{settings.shopName}</h3>
             <p className="text-sm text-gray-600">
               Authorised dealer of RINL/SAIL in UP. The foundation of trust since 1979.

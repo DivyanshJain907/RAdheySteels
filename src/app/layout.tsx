@@ -5,6 +5,23 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   title: "Radhey Raman Steel Suppliers- Premium Steel Products",
   description: "Authorized RINL/SAIL dealer - Premium steel products and solutions since 1979",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "Radhey Raman Steel Suppliers- Premium Steel Products",
+    description: "Authorized RINL/SAIL dealer - Premium steel products and solutions since 1979",
+    images: [
+      {
+        url: "/logo.png",
+        width: 200,
+        height: 200,
+        alt: "Radhey Raman Steels Logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

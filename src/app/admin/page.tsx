@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 export default function AdminLogin() {
   const [password, setPassword] = useState('');
@@ -44,6 +45,15 @@ export default function AdminLogin() {
         className="w-full max-w-md"
       >
         <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-lg">
+          <div className="flex justify-center mb-6">
+            <Image 
+              src="/logo.png" 
+              alt="Radhey Raman Steels Logo" 
+              width={160} 
+              height={160}
+              className="w-auto h-32"
+            />
+          </div>
           <h1 className="text-3xl font-bold text-center mb-2 text-black">
             Radhey Raman Steel
           </h1>
