@@ -44,19 +44,19 @@ function Header1() {
             items: [
                 {
                     title: "About us",
-                    href: "/#about",
+                    href: "/about",
                 },
                 {
                     title: "Our Services",
-                    href: "/#services",
+                    href: "/services",
                 },
                 {
                     title: "Testimonials",
-                    href: "/#testimonials",
+                    href: "/testimonials",
                 },
                 {
                     title: "Contact us",
-                    href: "/#contact",
+                    href: "/contact",
                 },
             ],
         },
@@ -120,9 +120,11 @@ function Header1() {
                     <p className="font-bold text-lg text-black">Radhey Raman Steel</p>
                 </div>
                 <div className="flex justify-end w-full gap-4">
-                    <Button variant="ghost" className="hidden md:inline text-darkGray">
-                        Book a quote
-                    </Button>
+                    <Link href="/quote">
+                        <Button variant="ghost" className="hidden md:inline text-darkGray">
+                            Book a quote
+                        </Button>
+                    </Link>
                     <div className="border-r hidden md:inline border-gray-300"></div>
                 </div>
                 <div className="flex w-12 shrink lg:hidden items-end justify-end">
@@ -151,6 +153,9 @@ function Header1() {
                                     </div>
                                 </div>
                             ))}
+                            <Link href="/quote" className="text-lg text-blue font-semibold">
+                                Book a quote
+                            </Link>
                         </div>
                     )}
                 </div>
