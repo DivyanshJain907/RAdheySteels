@@ -243,7 +243,7 @@ export default function QuotePage() {
                   animate={{ opacity: 1 }}
                   className="bg-green-50 border border-green-200 text-green-700 p-3 rounded text-center"
                 >
-                  ✓ Quote request submitted successfully! We'll contact you soon.
+                  ✓ Quote request submitted successfully! We&apos;ll contact you soon.
                 </motion.div>
               )}
             </form>

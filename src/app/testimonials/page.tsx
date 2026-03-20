@@ -77,7 +77,7 @@ export default function TestimonialsPage() {
                     <span key={i} className="text-yellow-400 text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.feedback}"</p>
+                <p className="text-gray-600 mb-4 italic">&quot; {testimonial.feedback} &quot;</p>
                 <div>
                   <p className="font-bold text-darkGray">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.company}</p>
