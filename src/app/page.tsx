@@ -7,6 +7,9 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ParticleTextEffect } from '@/components/ui/particle-text-effect';
+import { Testimonials } from '@/components/Testimonials';
 
 interface Product {
   _id: string;
@@ -86,27 +89,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 px-4 bg-gradient-to-r from-blue to-primary text-white">
+      {/* Stockists of Renowned Brands */}
+      <section className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">Why Choose Radhey Raman Steel?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkGray mb-3 md:mb-4">Stockists of Renowned Brands</h2>
+            <p className="text-gray-600 text-base md:text-lg">
+              <Link href="#" className="text-blue hover:underline">For more details - click here</Link>
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-center md:justify-between">
             {[
-              { icon: '🏆', title: '45+ Years', desc: 'Experience in steel industry' },
-              { icon: '✓', title: 'Premium Quality', desc: 'RINL/SAIL authorized dealer' },
-              { icon: '⚡', title: 'Fast Delivery', desc: 'Quick and reliable service' },
-              { icon: '💰', title: 'Best Prices', desc: 'Competitive market rates' },
-            ].map((item, index) => (
+              { name: 'SAIL', src: '/sail-logo.png' },
+              { name: 'RINL', src: '/rinl-logo.png' },
+              { name: 'JSW Steel', src: '/jsw-logo.png' },
+              { name: 'Jindal Steel', src: '/jindal-logo.png' },
+            ].map((brand, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white bg-opacity-10 p-6 md:p-8 rounded-lg text-center backdrop-blur-sm"
+                initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ scale: 1.1, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
+                transition={{ 
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  type: 'spring',
+                  stiffness: 100
+                }}
+                className="bg-white p-4 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-48 shadow-md hover:shadow-2xl"
               >
-                <div className="text-4xl md:text-5xl mb-3 md:mb-4">{item.icon}</div>
-                <h3 className="text-lg md:text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-sm md:text-base text-gray-100">{item.desc}</p>
+                <motion.div
+                  className="text-center w-full"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
+                >
+                  <div className="h-40 md:h-56 flex items-center justify-center">
+                    <Image
+                      src={brand.src}
+                      alt={brand.name}
+                      width={brand.name === 'Jindal Steel' ? 280 : 220}
+                      height={brand.name === 'Jindal Steel' ? 280 : 220}
+                      className="max-w-full max-h-full object-contain"
+                      priority
+                    />
+                  </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
