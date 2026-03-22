@@ -90,7 +90,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          rows={5}
+          rows={3}
           className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue focus:ring-1 focus:ring-blue outline-none transition resize-none"
         />
       </div>

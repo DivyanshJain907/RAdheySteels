@@ -16,6 +16,30 @@
   body {
     @apply bg-white text-darkGray;
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #1e3a8a, #1e293b);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #1e40af, #0f172a);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-color: linear-gradient(to bottom, #1e3a8a, #1e293b) #f1f1f1;
+    scrollbar-width: thin;
+  }
 }
 
 /* Animations */

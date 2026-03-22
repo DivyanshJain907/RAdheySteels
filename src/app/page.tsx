@@ -48,16 +48,16 @@ export default function Home() {
       <Header1 />
 
       {/* Enhanced Hero Section */}
-      <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center bg-gradient-to-br from-darkGray via-dark to-black overflow-hidden pt-12 md:pt-0">
+      <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 overflow-hidden pt-8 md:pt-0">
         <div className="absolute inset-0 opacity-30">
-          <ParticleTextEffect words={["RADHEY", "RAMAN", "STEELS", "SINCE", "1979"]} width={1000} height={500} />
+          <ParticleTextEffect words={["RADHEY", "RAMAN", "STEELS"]} width={800} height={300} />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-4 md:mb-6"
+            className="text-3xl md:text-6xl font-bold text-white mb-3 md:mb-6"
           >
             Premium Steel Solutions Since 1979
           </motion.h1>
@@ -65,7 +65,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-2xl text-gray-300 mb-6 md:mb-10"
+            className="text-base md:text-2xl text-gray-300 mb-4 md:mb-10"
           >
             Authorized RINL/SAIL dealer providing trusted steel products for construction and industry
           </motion.p>
@@ -73,10 +73,10 @@ export default function Home() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-3 md:gap-6 justify-center items-center"
+            className="flex flex-col gap-2 md:gap-6 justify-center items-center"
           >
             <Link href="/quote">
-              <button className="bg-blue hover:bg-primary text-white px-6 md:px-10 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-base md:text-lg w-full sm:w-auto">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-6 md:px-10 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-base md:text-lg w-full sm:w-auto">
                 Get a Quote
               </button>
             </Link>
@@ -90,10 +90,10 @@ export default function Home() {
       </section>
 
       {/* Stockists of Renowned Brands */}
-      <section className="py-16 md:py-24 px-4 bg-white">
+      <section className="py-16 md:py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-darkGray mb-3 md:mb-4">Stockists of Renowned Brands</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4">Stockists of Renowned Brands</h2>
             <p className="text-gray-600 text-base md:text-lg">
               <Link href="#" className="text-blue hover:underline">For more details - click here</Link>
             </p>
@@ -116,14 +116,14 @@ export default function Home() {
                   type: 'spring',
                   stiffness: 100
                 }}
-                className="bg-white p-4 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-48 shadow-md hover:shadow-2xl"
+                className="bg-white p-4 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-32 md:min-h-48 shadow-md hover:shadow-2xl"
               >
                 <motion.div
                   className="text-center w-full"
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                 >
-                  <div className="h-40 md:h-56 flex items-center justify-center">
+                  <div className="h-32 md:h-40 lg:h-56 flex items-center justify-center">
                     <Image
                       src={brand.src}
                       alt={brand.name}
@@ -155,14 +155,14 @@ export default function Home() {
             >
               Our Products
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-darkGray mt-2">Quality Steel Products</h2>
-            <p className="text-gray-600 text-base md:text-lg">Wide range of premium RINL/SAIL steel products for all your needs</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2\">Quality Steel Products</h2>
+            <p className="text-slate-700 text-base md:text-lg\">Wide range of premium RINL/SAIL steel products for all your needs</p>
           </motion.div>
 
           {loading ? (
             <div className="text-center py-20">
               <div className="inline-block animate-spin">⟳</div>
-              <p className="text-gray-600 mt-4">Loading products...</p>
+              <p className="text-slate-700 mt-4">Loading products...</p>
             </div>
           ) : products.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
@@ -179,8 +179,8 @@ export default function Home() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-gray-600 mb-4">No products available yet.</p>
-              <p className="text-gray-500">Products will be added soon.</p>
+              <p className="text-slate-700 mb-4">No products available yet.</p>
+              <p className="text-slate-600">Products will be added soon.</p>
             </div>
           )}
           <motion.div
@@ -189,7 +189,7 @@ export default function Home() {
             className="text-center mt-12 md:mt-16"
           >
             <Link href="/products">
-              <button className="bg-blue hover:bg-primary text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg">
+              <button className="bg-slate-900 hover:bg-slate-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg">
                 View All Products
               </button>
             </Link>
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* About Brief Section */}
-      <section className="py-16 md:py-24 px-4 bg-gray-50">
+      <section className="py-16 md:py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
@@ -212,15 +212,15 @@ export default function Home() {
               >
                 About Us
               </motion.span>
-              <h2 className="text-3xl md:text-4xl font-bold text-darkGray mt-2 mb-6">Building Trust Since 1979</h2>
-              <p className="text-gray-600 mb-4 text-base md:text-lg">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">Building Trust Since 1979</h2>
+              <p className="text-slate-700 mb-4 text-base md:text-lg">
                 Radhey Raman Steel is a trusted authorized dealer of RINL/SAIL steel products, serving the construction and industrial sectors for over 45 years.
               </p>
-              <p className="text-gray-600 mb-6 text-base md:text-lg">
+              <p className="text-slate-700 mb-6 text-base md:text-lg">
                 We are committed to providing premium quality steel products at competitive prices with exceptional customer service and timely delivery.
               </p>
               <Link href="/about">
-                <button className="bg-blue hover:bg-primary text-white px-6 md:px-8 py-3 rounded-lg font-bold transition">
+                <button className="bg-slate-900 hover:bg-slate-800 text-white px-6 md:px-8 py-3 rounded-lg font-bold transition">
                   Learn More
                 </button>
               </Link>
@@ -228,7 +228,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="bg-blue p-8 md:p-10 rounded-lg text-white"
+              className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 p-8 md:p-10 rounded-lg text-white"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Our Strengths</h3>
               <ul className="space-y-4">
@@ -266,8 +266,8 @@ export default function Home() {
             >
               Our Services
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-darkGray mt-2">Comprehensive Solutions</h2>
-            <p className="text-gray-600 text-base md:text-lg">Everything you need for your steel requirements</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2">Comprehensive Solutions</h2>
+            <p className="text-slate-700 text-base md:text-lg">Everything you need for your steel requirements</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
@@ -283,10 +283,10 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 p-6 md:p-8 rounded-lg border-l-4 border-blue hover:shadow-lg transition"
+                className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-blue hover:shadow-lg transition hover:border-slate-900"
               >
-                <h3 className="text-lg md:text-xl font-bold text-darkGray mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base">{item.desc}</p>
+                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3\">{item.title}</h3>
+                <p className="text-slate-700 text-sm md:text-base\">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -296,7 +296,7 @@ export default function Home() {
             className="text-center mt-12 md:mt-16"
           >
             <Link href="/services">
-              <button className="bg-blue hover:bg-primary text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg">
+              <button className="bg-slate-900 hover:bg-slate-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg\">
                 View All Services
               </button>
             </Link>
@@ -308,12 +308,12 @@ export default function Home() {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-darkGray to-dark text-white">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-4xl font-bold mb-4 md:mb-6"
+            className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-white"
           >
             Ready to Get Started?
           </motion.h2>
@@ -332,7 +332,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center"
           >
             <Link href="/quote">
-              <button className="bg-blue hover:bg-primary text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg w-full sm:w-auto">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg w-full sm:w-auto\">
                 Get a Quote
               </button>
             </Link>
@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-24 px-4 bg-cream">
+      <section id="contact" className="py-16 md:py-24 px-4 bg-white\">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
@@ -360,8 +360,8 @@ export default function Home() {
             >
               Get In Touch
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-darkGray mt-2">We&apos;d Love to Hear From You</h2>
-            <p className="text-gray-600 text-base md:text-lg">Send us a message and we&apos;ll respond as soon as possible</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2\">We&apos;d Love to Hear From You</h2>
+            <p className="text-slate-700 text-base md:text-lg\">Send us a message and we&apos;ll respond as soon as possible</p>
           </motion.div>
 
           <motion.div
