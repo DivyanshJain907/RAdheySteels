@@ -7,16 +7,16 @@ import ContactForm from '@/components/ContactForm';
 
 export default function ContactPage() {
   return (
-    <main className="bg-white pt-32">
+    <main className="bg-white">
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold mb-6"
+            className="text-3xl md:text-5xl font-bold mb-4 md:mb-6"
           >
             Contact Us
           </motion.h1>
@@ -24,7 +24,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300"
+            className="text-base md:text-xl text-gray-300"
           >
             Get in touch with our team for any inquiries
           </motion.p>
@@ -32,8 +32,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+      <section className="py-12 md:py-20 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -97,7 +97,7 @@ export default function ContactPage() {
                   <h3 className="text-lg font-semibold text-darkGray">Business Hours</h3>
                   <p className="text-gray-600">
                     Monday - Saturday: 9:00 AM - 6:00 PM<br/>
-                    Sunday: Closed
+                    Sunday: Close
                   </p>
                 </div>
               </div>

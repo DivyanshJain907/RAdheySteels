@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-darkGray">
+      <body className="bg-white text-darkGray pt-20 md:pt-32">
         {children}
         <WhatsAppButton />
       </body>

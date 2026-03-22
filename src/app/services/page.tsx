@@ -39,16 +39,16 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="bg-white pt-32">
+    <main className="bg-white">
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold mb-6"
+            className="text-3xl md:text-5xl font-bold mb-4 md:mb-6"
           >
             Our Services
           </motion.h1>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300"
+            className="text-base md:text-xl text-gray-300"
           >
             Comprehensive steel supply solutions for your projects
           </motion.p>
@@ -64,9 +64,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -75,8 +75,8 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition"
               >
-                <h3 className="text-2xl font-bold text-blue mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-lg md:text-2xl font-bold text-blue mb-2 md:mb-3">{service.title}</h3>
+                <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-6">{service.description}</p>
                 <div className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
@@ -92,10 +92,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Our Services */}
-      <section className="py-20 px-4 bg-cream">
+      <section className="py-12 md:py-20 px-4 bg-cream">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-darkGray mb-12 text-center">Why Choose Our Services</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-2xl md:text-4xl font-bold text-darkGray mb-8 md:mb-12 text-center">Why Choose Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {[
               { title: 'Reliability', description: 'Consistent quality and on-time delivery every single time' },
               { title: 'Expertise', description: 'Years of experience in steel industry and customer satisfaction' },

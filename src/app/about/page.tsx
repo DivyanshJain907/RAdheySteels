@@ -6,16 +6,16 @@ import Footer from '@/components/Footer';
 
 export default function AboutPage() {
   return (
-    <main className="bg-white pt-32">
+    <main className="bg-white">
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold mb-6"
+            className="text-3xl md:text-5xl font-bold mb-4 md:mb-6"
           >
             About Radhey Raman Steel
           </motion.h1>
@@ -23,7 +23,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-300"
+            className="text-base md:text-xl text-gray-300"
           >
             Your trusted steel supplier since 1979
           </motion.p>
@@ -31,17 +31,17 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 px-4">
+      <section className="py-12 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-2 gap-12 items-center mb-16"
+            className="grid md:grid-cols-2 gap-6 md:gap-12 items-center mb-12 md:mb-16"
           >
             <div>
-              <h2 className="text-4xl font-bold text-darkGray mb-6">Our Story</h2>
-              <p className="text-gray-600 text-lg mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-darkGray mb-4 md:mb-6">Our Story</h2>
+              <p className="text-gray-600 text-base md:text-lg mb-3 md:mb-4">
                 Radhey Raman Steel has been serving the construction and industrial sectors for over 45 years. 
                 Founded in 1979, we established ourselves as a trusted authorized dealer of RINL/SAIL steel products.
               </p>
@@ -57,9 +57,9 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="bg-blue text-white p-8 rounded-lg"
+              className="bg-blue text-white p-6 md:p-8 rounded-lg"
             >
-              <h3 className="text-2xl font-bold mb-4">Key Facts</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Key Facts</h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <span className="text-2xl">✓</span>
@@ -114,10 +114,10 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-4 bg-cream">
+      <section className="py-12 md:py-20 px-4 bg-cream">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-darkGray mb-12 text-center">Why Choose Us</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl md:text-4xl font-bold text-darkGray mb-8 md:mb-12 text-center">Why Choose Us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[
               { title: 'Quality Products', description: 'Premium steel from authorized RINL/SAIL dealers ensuring superior quality' },
               { title: 'Expert Team', description: 'Knowledgeable staff ready to assist with product selection and specifications' },

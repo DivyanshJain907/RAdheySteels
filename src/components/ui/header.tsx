@@ -65,15 +65,15 @@ function Header1() {
     const [isOpen, setOpen] = useState(false);
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-white border-b border-gray-200 shadow-sm">
-            <div className="container relative mx-auto min-h-28 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
-                <div className="justify-start items-center gap-4 flex flex-row">
-                    <Link href="/" className="flex items-center gap-2">
+            <div className="container relative mx-auto min-h-20 md:min-h-28 flex gap-2 md:gap-4 flex-row lg:grid lg:grid-cols-3 items-center px-3 md:px-4">
+                <div className="justify-start items-center gap-2 md:gap-4 flex flex-row">
+                    <Link href="/" className="flex items-center gap-2 flex-shrink-0">
                         <Image 
                             src="/logo.png" 
                             alt="Radhey Raman Steels Logo" 
                             width={120} 
                             height={120}
-                            className="w-auto h-24"
+                            className="w-auto h-16 md:h-24"
                             priority
                         />
                     </Link>
@@ -119,9 +119,9 @@ function Header1() {
                 <div className="flex lg:justify-center">
                     <p className="font-bold text-lg text-black">Radhey Raman Steel</p>
                 </div>
-                <div className="flex justify-end w-full gap-4">
+                <div className="flex justify-end w-full gap-2 md:gap-4">
                     <Link href="/quote">
-                        <Button variant="ghost" className="hidden md:inline text-darkGray">
+                        <Button variant="ghost" className="hidden md:inline text-darkGray text-sm">
                             Book a quote
                         </Button>
                     </Link>
