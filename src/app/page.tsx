@@ -47,21 +47,28 @@ export default function Home() {
       <Header1 />
 
       {/* Enhanced Hero Section */}
-      <section className="relative w-full h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 overflow-hidden -mt-16">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-16" style={{
+        backgroundImage: 'url(/bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight"
+            className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight drop-shadow-lg"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 4px 4px 12px rgba(0,0,0,0.5)' }}
           >
-            Premium Steel Solutions Since 1979
+            Radhey Raman Steel Suppliers
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
+            style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}
           >
             Authorized RINL/SAIL dealer providing trusted steel products for construction and industry
           </motion.p>
@@ -94,7 +101,7 @@ export default function Home() {
               <Link href="#" className="text-blue hover:underline">For more details - click here</Link>
             </p>
           </div>
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-center md:justify-between">
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 md:gap-8 items-center justify-center md:justify-between">
             {[
               { name: 'SAIL', src: '/sail-logo.png' },
               { name: 'RINL', src: '/rinl-logo.png' },
@@ -112,14 +119,14 @@ export default function Home() {
                   type: 'spring',
                   stiffness: 100
                 }}
-                className="bg-white p-4 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-32 md:min-h-48 shadow-md hover:shadow-2xl"
+                className="bg-white p-3 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-28 md:min-h-48 shadow-md hover:shadow-2xl"
               >
                 <motion.div
                   className="text-center w-full"
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                 >
-                  <div className="h-32 md:h-40 lg:h-56 flex items-center justify-center">
+                  <div className="h-20 md:h-40 lg:h-56 flex items-center justify-center">
                     <Image
                       src={brand.src}
                       alt={brand.name}

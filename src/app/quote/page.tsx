@@ -69,12 +69,12 @@ export default function QuotePage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
+      <section className="relative w-full py-8 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-bold mb-4 md:mb-6"
+            className="text-2xl md:text-5xl font-bold mb-3 md:mb-6"
           >
             Book a Quote
           </motion.h1>
@@ -90,18 +90,18 @@ export default function QuotePage() {
       </section>
 
       {/* Quote Form Section */}
-      <section className="py-12 md:py-20 px-4">
+      <section className="py-8 md:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="bg-cream p-4 md:p-8 rounded-lg"
+            className="bg-white border border-gray-200 p-3 md:p-8 rounded-lg shadow-sm"
           >
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Full Name *</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2">Full Name *</label>
                   <input
                     type="text"
                     name="name"
@@ -109,13 +109,13 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="Your name"
-                    className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Email *</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Email *</label>
                   <input
                     type="email"
                     name="email"
@@ -123,13 +123,13 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="your@email.com"
-                    className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   />
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Phone *</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Phone *</label>
                   <input
                     type="tel"
                     name="phone"
@@ -137,32 +137,32 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="+91 (555) 000-0000"
-                    className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   />
                 </div>
 
                 {/* Company */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Company/Organization</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Company/Organization</label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your company name"
-                    className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   />
                 </div>
 
                 {/* Product Type */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Product Type *</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Product Type *</label>
                   <select
                     name="productType"
                     value={formData.productType}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   >
                     <option value="">Select a product</option>
                     <option value="TMT Steel">TMT Steel</option>
@@ -175,7 +175,7 @@ export default function QuotePage() {
 
                 {/* Quantity */}
                 <div>
-                  <label className="block text-sm font-medium text-darkGray mb-2">Quantity (in tons) *</label>
+                  <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Quantity (in tons) *</label>
                   <input
                     type="number"
                     name="quantity"
@@ -183,46 +183,46 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="100"
-                    className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                   />
                 </div>
               </div>
 
               {/* Specifications */}
               <div>
-                <label className="block text-sm font-medium text-darkGray mb-2">Specifications/Requirements</label>
+                <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Specifications/Requirements</label>
                 <textarea
                   name="specifications"
                   value={formData.specifications}
                   onChange={handleChange}
                   placeholder="Enter grade, size, dimensions or any specific requirements"
                   rows={3}
-                  className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+                  className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
                 />
               </div>
 
               {/* Delivery Date */}
               <div>
-                <label className="block text-sm font-medium text-darkGray mb-2">Required Delivery Date</label>
+                <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Required Delivery Date</label>
                 <input
                   type="date"
                   name="deliveryDate"
                   value={formData.deliveryDate}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                  className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-medium text-darkGray mb-2">Additional Message</label>
+                <label className="block text-xs md:text-sm font-medium text-darkGray mb-2\">Additional Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Any additional details or special requests"
                   rows={4}
-                  className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+                  className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
                 />
               </div>
 
@@ -232,7 +232,7 @@ export default function QuotePage() {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue text-white py-3 rounded font-bold hover:bg-primary transition disabled:opacity-50"
+                className="w-full bg-blue text-white py-2 md:py-3 text-sm md:text-base rounded font-bold hover:bg-primary transition disabled:opacity-50"
               >
                 {loading ? 'Submitting...' : 'Request Quote'}
               </motion.button>

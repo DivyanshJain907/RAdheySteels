@@ -28,7 +28,7 @@ export default function ProductCard({
       className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-blue transition group shadow-md hover:shadow-lg"
     >
       {/* Image Container */}
-      <div className="relative h-64 bg-gray-200 overflow-hidden">
+      <div className="relative h-40 md:h-56 lg:h-64 bg-gray-200 overflow-hidden">
         {image && (
           <Image
             src={image}
