@@ -4,7 +4,7 @@ import { Timeline } from '@/models/Timeline';
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const adminSecret = request.headers.get('x-admin-secret');
@@ -15,8 +15,9 @@ export async function DELETE(
       );
     }
 
+    const { id } = await params;
     await dbConnect();
-    const result = await Timeline.findByIdAndDelete(params.id);
+    const result = await Timeline.findByIdAndDelete(id);
 
     if (!result) {
       return NextResponse.json(
