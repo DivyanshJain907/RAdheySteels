@@ -1,5 +1,3 @@
-import { ParticleTextEffect } from "@/components/ui"
-
 interface DemoProps {
   customWords?: string[]
   width?: number
@@ -11,5 +9,7 @@ export function ParticleTextDemo({
   width = 1000,
   height = 500
 }: DemoProps) {
-  return <ParticleTextEffect words={customWords} width={width} height={height} />
+  return <div className="w-full h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
+    <h1 className="text-4xl font-bold text-white">Demo Component</h1>
+  </div>
 }
