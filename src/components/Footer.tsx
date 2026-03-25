@@ -83,13 +83,27 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Address</h4>
             <p className="text-xs md:text-sm text-gray-200 mb-3">
               <span className="font-semibold">Sales Office:</span><br />
-              76-A Factory area fazalganj<br />
-              Kanpur-208012
+              <a 
+                href="https://maps.app.goo.gl/2X6VNRN8tyGU8EQU7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-yellow-300 transition"
+              >
+                76-A Factory area fazalganj<br />
+                Kanpur-208012
+              </a>
             </p>
             <p className="text-xs md:text-sm text-gray-200">
               <span className="font-semibold">Warehouse:</span><br />
-              Arazi no. 444/445 bhautipratappur<br />
-              Kanpur-209305
+              <a 
+                href="https://www.google.com/maps/search/Arazi+no.+444/445+bhautipratappur+Kanpur+209305" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-yellow-300 transition"
+              >
+                Arazi no. 444/445 bhautipratappur<br />
+                Kanpur-209305
+              </a>
             </p>
           </div>
         </div>
