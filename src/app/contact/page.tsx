@@ -115,6 +115,51 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Google Maps Section */}
+      <section className="py-12 md:py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl font-bold text-darkGray mb-4">Our Location</h2>
+            <p className="text-gray-600">Visit our sales office at the address below</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="rounded-lg overflow-hidden shadow-lg"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.2493427645827!2d75.81940631110047!3d26.876345959999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4d67b9999999%3A0x12345678!2s76-A%20Factory%20area%20Fazalganj%20Kanpur%20208012!5e0!3m2!1sen!2sin!4v1711353600000&markers=color:red%7C26.876345959999998,75.81940631110047"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            ></iframe>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+          >
+            <h3 className="text-xl font-semibold text-darkGray mb-4">Sales Office Address</h3>
+            <p className="text-gray-600 leading-relaxed">
+              <strong>76-A Factory area Fazalganj</strong><br />
+              Kanpur - 208012<br />
+              Uttar Pradesh, India
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

@@ -7,7 +7,7 @@ interface ProductCardProps {
   _id?: string;
   id?: string;
   name: string;
-  price: number;
+  price?: number;
   category: string;
   image?: string;
   description: string;
@@ -52,14 +52,20 @@ export default function ProductCard({
         <h3 className="text-darkGray text-xl font-bold mb-2">{name}</h3>
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{description}</p>
 
-        <div className="flex items-center justify-between">
-          <span className="text-blue text-2xl font-bold">Rs. {price}</span>
+        <div className="flex items-center justify-center">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-blue text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary transition shadow-md"
+            onClick={() => {
+              const phoneNumber = '917905245645';
+              const message = `Hi! I would like to know more about ${name}. Can you provide me with details and pricing?`;
+              const encodedMessage = encodeURIComponent(message);
+              const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+              window.open(whatsappURL, '_blank');
+            }}
+            className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold transition shadow-md w-full"
           >
-            View
+            Inquiry on WhatsApp
           </motion.button>
         </div>
       </div>

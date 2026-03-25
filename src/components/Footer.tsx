@@ -68,7 +68,6 @@ export default function Footer() {
             <ul className="space-y-2 text-xs md:text-sm text-gray-200">
               <li><a href="#products" className="hover:text-yellow-300 transition">Products</a></li>
               <li><a href="#contact" className="hover:text-yellow-300 transition">Contact</a></li>
-              <li><a href="/admin" className="hover:text-yellow-300 transition">Admin</a></li>
             </ul>
           </div>
 
