@@ -40,6 +40,18 @@
     scrollbar-color: linear-gradient(to bottom, #1e3a8a, #1e293b) #f1f1f1;
     scrollbar-width: thin;
   }
+
+  /* Hide scrollbar on mobile */
+  @media (max-width: 768px) {
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 /* Animations */

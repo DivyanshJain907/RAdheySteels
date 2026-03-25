@@ -66,7 +66,7 @@ function Header1() {
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-white border-b-2 border-blue-900 shadow-lg">
             <div className="max-w-5xl mx-auto px-4 md:px-6">
-                <div className="flex justify-between items-center min-h-16 md:min-h-20">
+                <div className="flex justify-between items-center min-h-14 md:min-h-20">
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center flex-shrink-0">
                         <Image 
@@ -74,7 +74,7 @@ function Header1() {
                             alt="Radhey Raman Steels Logo" 
                             width={120} 
                             height={120}
-                            className="w-auto h-12 md:h-16"
+                            className="w-auto h-10 md:h-16"
                             priority
                         />
                     </Link>
@@ -138,16 +138,16 @@ function Header1() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <div className="lg:hidden bg-blue-50 border-t border-blue-200 py-4 space-y-4 rounded-b-lg">
+                    <div className="lg:hidden bg-blue-50 border-t border-blue-200 py-3 space-y-2 rounded-b-lg max-h-[calc(100vh-60px)] overflow-y-auto">
                         {navigationItems.map((item) => (
                             <div key={item.title} className="px-4">
-                                <p className="text-slate-900 font-bold text-lg mb-3">{item.title}</p>
-                                <div className="ml-4 space-y-2">
+                                <p className="text-slate-900 font-bold text-base mb-2">{item.title}</p>
+                                <div className="ml-4 space-y-1">
                                     {item.items?.map((subItem) => (
                                         <Link
                                             key={subItem.title}
                                             href={subItem.href}
-                                            className="flex items-center text-slate-700 hover:text-blue-900 py-2 transition-colors font-medium"
+                                            className="flex items-center text-slate-700 hover:text-blue-900 py-1 px-2 transition-colors font-medium text-sm"
                                             onClick={() => setOpen(false)}
                                         >
                                             <span>{subItem.title}</span>
@@ -157,9 +157,9 @@ function Header1() {
                                 </div>
                             </div>
                         ))}
-                        <div className="border-t border-blue-200 pt-4 px-4">
+                        <div className="border-t border-blue-200 pt-3 px-4">
                             <Link href="/quote" className="block w-full">
-                                <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 rounded-lg transition text-base">
+                                <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-2 rounded-lg transition text-sm">
                                     Book a Quote
                                 </button>
                             </Link>
