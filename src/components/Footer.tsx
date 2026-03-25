@@ -14,7 +14,7 @@ interface Settings {
 export default function Footer() {
   const [settings, setSettings] = useState<Settings>({
     shopName: 'Radhey Raman Steel Suppliers',
-    email: 'info@radheysteels.com',
+    email: 'info.rrss.co@gmail.com',
     phone: '+91 7905245645 | +91 9389708460',
   });
 
@@ -29,7 +29,7 @@ export default function Footer() {
     //       const data = await response.json();
     //       setSettings({
     //         shopName: data.shopName || 'Radhey Raman Steel Suppliers',
-    //         email: data.email || 'info@radheysteels.com',
+    //         email: data.email || 'info.rrss.co@gmail.com',
     //         phone: data.phone || '+91 7905245645 | +91 9389708460',
     //       });
     //     }

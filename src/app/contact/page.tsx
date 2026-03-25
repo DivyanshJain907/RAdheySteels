@@ -83,7 +83,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-darkGray">Email</h3>
-                  <p className="text-gray-600">info@radheysteels.com</p>
+                  <p className="text-gray-600">info.rrss.co@gmail.com</p>
                 </div>
               </div>
 
@@ -133,7 +133,7 @@ export default function ContactPage() {
             className="rounded-lg overflow-hidden shadow-lg"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.2493427645827!2d75.81940631110047!3d26.876345959999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4d67b9999999%3A0x12345678!2s76-A%20Factory%20area%20Fazalganj%20Kanpur%20208012!5e0!3m2!1sen!2sin!4v1711353600000&markers=color:red%7C26.876345959999998,75.81940631110047"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.8!2d80.3072613!3d26.4581257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c478e54ad8293%3A0x50640de0dacc1e1f!2sRadhey%20Raman%20Steel%20suppliers!5e0!3m2!1sen!2sin!4v1711353600000"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -152,9 +152,10 @@ export default function ContactPage() {
           >
             <h3 className="text-xl font-semibold text-darkGray mb-4">Sales Office Address</h3>
             <p className="text-gray-600 leading-relaxed">
-              <strong>76-A Factory area Fazalganj</strong><br />
-              Kanpur - 208012<br />
-              Uttar Pradesh, India
+              <strong>Fact Area, 123/768/A(10)</strong><br />
+              Fazalganj Industrial Estate, Fazalganj<br />
+              Shastri Nagar, Kanpur<br />
+              Uttar Pradesh 208012, India
             </p>
           </motion.div>
         </div>
