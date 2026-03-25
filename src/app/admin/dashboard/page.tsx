@@ -63,7 +63,7 @@ export default function AdminDashboard() {
       {/* Navigation Tabs */}
       <div className="border-b border-gray-200 sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur overflow-x-auto">
         <div className="max-w-7xl mx-auto px-4 flex">
-          {['products', 'contacts', 'settings'].map((tab) => (
+          {['products', 'timeline', 'contacts', 'settings'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -82,6 +82,7 @@ export default function AdminDashboard() {
       {/* Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         {activeTab === 'products' && <ProductsTab />}
+        {activeTab === 'timeline' && <TimelineTab />}
         {activeTab === 'contacts' && <ContactsTab />}
         {activeTab === 'settings' && <SettingsTab />}
       </div>
@@ -474,6 +475,192 @@ function SettingsTab() {
           </button>
         </div>
       </motion.div>
+    </div>
+  );
+}
+
+function TimelineTab() {
+  const [timelineEntries, setTimelineEntries] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [formData, setFormData] = useState({
+    heading: '',
+    description: '',
+    year: new Date().getFullYear(),
+    image: '',
+  });
+
+  useEffect(() => {
+    fetchTimeline();
+  }, []);
+
+  const fetchTimeline = async () => {
+    try {
+      const response = await fetch('/api/timeline');
+      if (response.ok) {
+        const data = await response.json();
+        setTimelineEntries(data);
+      }
+    } catch (error) {
+      console.error('Error fetching timeline:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddEntry = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const token = localStorage.getItem('adminToken');
+
+    try {
+      const response = await fetch('/api/timeline', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-secret': token || '',
+        },
+        body: JSON.stringify({
+          ...formData,
+          year: parseInt(formData.year.toString()),
+        }),
+      });
+
+      if (response.ok) {
+        setFormData({
+          heading: '',
+          description: '',
+          year: new Date().getFullYear(),
+          image: '',
+        });
+        setShowForm(false);
+        fetchTimeline();
+      }
+    } catch (error) {
+      console.error('Error adding timeline entry:', error);
+    }
+  };
+
+  const handleDeleteEntry = async (id: string) => {
+    const token = localStorage.getItem('adminToken');
+
+    try {
+      const response = await fetch(`/api/timeline/${id}`, {
+        method: 'DELETE',
+        headers: { 'x-admin-secret': token || '' },
+      });
+
+      if (response.ok) {
+        fetchTimeline();
+      }
+    } catch (error) {
+      console.error('Error deleting timeline entry:', error);
+    }
+  };
+
+  if (loading) {
+    return <div className="text-center py-20 text-gray-600">Loading timeline...</div>;
+  }
+
+  return (
+    <div>
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-3xl font-bold text-black">Timeline Management</h2>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          onClick={() => setShowForm(!showForm)}
+          className="bg-blue text-white px-6 py-3 rounded font-bold"
+        >
+          {showForm ? 'Cancel' : '+ Add Timeline Entry'}
+        </motion.button>
+      </div>
+
+      {showForm && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-lg p-8 mb-8 border border-gray-200 shadow-lg"
+        >
+          <form onSubmit={handleAddEntry} className="grid grid-cols-2 gap-4">
+            <input
+              type="text"
+              placeholder="Heading"
+              value={formData.heading}
+              onChange={(e) => setFormData({ ...formData, heading: e.target.value })}
+              required
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+            />
+
+            <input
+              type="number"
+              placeholder="Year"
+              value={formData.year}
+              onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
+              required
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+            />
+
+            <input
+              type="text"
+              placeholder="Image URL"
+              value={formData.image}
+              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+            />
+
+            <textarea
+              placeholder="Description"
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              required
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+              rows={3}
+            />
+
+            <button
+              type="submit"
+              className="col-span-2 bg-blue text-white py-3 rounded font-bold hover:bg-primary transition"
+            >
+              Add Entry
+            </button>
+          </form>
+        </motion.div>
+      )}
+
+      <div className="space-y-4">
+        {timelineEntries.length > 0 ? (
+          timelineEntries.map((entry) => (
+            <motion.div
+              key={entry._id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
+            >
+              <div className="flex justify-between items-start gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-blue font-bold text-lg">{entry.year}</span>
+                    <h3 className="text-lg font-bold text-darkGray">{entry.heading}</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm mb-2">{entry.description}</p>
+                  {entry.image && (
+                    <p className="text-xs text-gray-500">Image URL: {entry.image.substring(0, 50)}...</p>
+                  )}
+                </div>
+                <button
+                  onClick={() => handleDeleteEntry(entry._id)}
+                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition font-semibold text-sm"
+                >
+                  Delete
+                </button>
+              </div>
+            </motion.div>
+          ))
+        ) : (
+          <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-300">
+            <p className="text-gray-600">No timeline entries yet. Create your first entry!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

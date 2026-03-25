@@ -82,6 +82,14 @@ function Header1() {
                     {/* Desktop Navigation */}
                     <NavigationMenu className="hidden lg:block">
                         <NavigationMenuList className="flex gap-1">
+                            <NavigationMenuItem>
+                                <NavigationMenuLink 
+                                    href="/" 
+                                    className="font-semibold text-sm text-slate-900 hover:text-blue-900 transition-colors px-2 py-1"
+                                >
+                                    Home
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
                             {navigationItems.map((item) => (
                                 <NavigationMenuItem key={item.title}>
                                     <NavigationMenuTrigger className="font-semibold text-sm text-slate-900 hover:text-blue-900 transition-colors px-2 py-1">
@@ -139,6 +147,15 @@ function Header1() {
                 {/* Mobile Menu */}
                 {isOpen && (
                     <div className="lg:hidden bg-blue-50 border-t border-blue-200 py-3 space-y-2 rounded-b-lg max-h-[calc(100vh-60px)] overflow-y-auto">
+                        <div className="px-4">
+                            <Link
+                                href="/"
+                                className="flex items-center text-slate-900 hover:text-blue-900 py-2 px-2 transition-colors font-bold text-base"
+                                onClick={() => setOpen(false)}
+                            >
+                                Home
+                            </Link>
+                        </div>
                         {navigationItems.map((item) => (
                             <div key={item.title} className="px-4">
                                 <p className="text-slate-900 font-bold text-base mb-2">{item.title}</p>

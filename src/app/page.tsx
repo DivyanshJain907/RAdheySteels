@@ -8,7 +8,7 @@ import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Testimonials } from '@/components/Testimonials';
+import { Timeline } from '@/components/Timeline';
 
 interface Product {
   _id: string;
@@ -307,8 +307,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
+      {/* Timeline Section */}
+      <Timeline />
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
