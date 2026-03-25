@@ -11,7 +11,7 @@ export default function ContactPage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -32,7 +32,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-12 md:py-20 px-4">
+      <section className="py-12 md:py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-12">
           {/* Contact Information */}
           <motion.div
@@ -57,8 +57,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-darkGray">Address</h3>
                   <p className="text-gray-600">
-                    Radhey Raman Steel<br/>
-                    Uttar Pradesh, India
+                    Sales Office: 76-A Factory area fazalganj, Kanpur-208012<br/>
+                    Warehouse: Arazi no. 444/445 bhautipratappur, Kanpur-209305
                   </p>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-darkGray">Phone</h3>
-                  <p className="text-gray-600">+91 (555) 000-0000</p>
+                  <p className="text-gray-600">+91 7905245645 | +91 9389708460</p>
                 </div>
               </div>
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="bg-cream p-8 rounded-lg"
+            className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm"
           >
             <ContactForm />
           </motion.div>

@@ -43,7 +43,7 @@ export default function ServicesPage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-b from-darkGray to-dark text-white px-4">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
