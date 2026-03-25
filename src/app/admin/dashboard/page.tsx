@@ -96,7 +96,6 @@ function ProductsTab() {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    price: '',
     category: '',
     image: '',
     featured: false,
@@ -131,17 +130,13 @@ function ProductsTab() {
           'Content-Type': 'application/json',
           'x-admin-secret': token || '',
         },
-        body: JSON.stringify({
-          ...formData,
-          price: parseFloat(formData.price),
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setFormData({
           name: '',
           description: '',
-          price: '',
           category: '',
           image: '',
           featured: false,
@@ -205,15 +200,6 @@ function ProductsTab() {
               placeholder="Category"
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              required
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
-            />
-
-            <input
-              type="number"
-              placeholder="Price"
-              value={formData.price}
-              onChange={(e) => setFormData({ ...formData, price: e.target.value })}
               required
               className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
             />
