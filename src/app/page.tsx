@@ -8,7 +8,6 @@ import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ParticleTextEffect } from '@/components/ui/particle-text-effect';
 import { Testimonials } from '@/components/Testimonials';
 
 interface Product {
@@ -44,20 +43,17 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-white">
+    <main className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
       <Header1 />
 
       {/* Enhanced Hero Section */}
-      <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 overflow-hidden pt-8 md:pt-0">
-        <div className="absolute inset-0 opacity-30">
-          <ParticleTextEffect words={["RADHEY", "RAMAN", "STEELS"]} width={800} height={300} />
-        </div>
+      <section className="relative w-full h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 overflow-hidden -mt-16">
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl md:text-6xl font-bold text-white mb-3 md:mb-6"
+            className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight"
           >
             Premium Steel Solutions Since 1979
           </motion.h1>
@@ -65,7 +61,7 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base md:text-2xl text-gray-300 mb-4 md:mb-10"
+            className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed"
           >
             Authorized RINL/SAIL dealer providing trusted steel products for construction and industry
           </motion.p>
@@ -73,15 +69,15 @@ export default function Home() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col gap-2 md:gap-6 justify-center items-center"
+            className="flex flex-col md:flex-row gap-6 justify-center items-center"
           >
             <Link href="/quote">
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-6 md:px-10 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-base md:text-lg w-full sm:w-auto">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-lg md:text-xl w-full md:w-auto shadow-lg hover:shadow-xl">
                 Get a Quote
               </button>
             </Link>
             <Link href="/products">
-              <button className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 md:px-10 py-3 md:py-4 rounded-lg font-bold transition border-2 border-white text-base md:text-lg w-full sm:w-auto">
+              <button className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition border-2 border-white text-lg md:text-xl w-full md:w-auto shadow-lg hover:shadow-xl">
                 Explore Products
               </button>
             </Link>
@@ -90,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Stockists of Renowned Brands */}
-      <section className="py-16 md:py-24 px-4">
+      <section className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4">Stockists of Renowned Brands</h2>
@@ -198,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* About Brief Section */}
-      <section className="py-16 md:py-24 px-4">
+      <section className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
@@ -308,7 +304,7 @@ export default function Home() {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -346,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-24 px-4 bg-white\">
+      <section id="contact" className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}

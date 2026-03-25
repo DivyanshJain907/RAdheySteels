@@ -8,35 +8,37 @@ interface Settings {
   shopName?: string;
   email?: string;
   phone?: string;
+  address?: string;
 }
 
 export default function Footer() {
   const [settings, setSettings] = useState<Settings>({
     shopName: 'Radhey Raman Steel Suppliers',
     email: 'info@radheysteels.com',
-    phone: '+91 (555) 000-0000',
+    phone: '+91 7905245645 | +91 9389708460',
   });
 
   useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const response = await fetch('/api/admin/settings', {
-          headers: { 'x-admin-secret': '1234' },
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setSettings({
-            shopName: data.shopName || 'Radhey Raman Steel Suppliers',
-            email: data.email || 'info@radheysteels.com',
-            phone: data.phone || '+91 (555) 000-0000',
-          });
-        }
-      } catch (error) {
-        console.error('Error fetching settings:', error);
-      }
-    };
+    // Fetch settings from database (optional - using hardcoded values as fallback)
+    // const fetchSettings = async () => {
+    //   try {
+    //     const response = await fetch('/api/admin/settings', {
+    //       headers: { 'x-admin-secret': '1234' },
+    //     });
+    //     if (response.ok) {
+    //       const data = await response.json();
+    //       setSettings({
+    //         shopName: data.shopName || 'Radhey Raman Steel Suppliers',
+    //         email: data.email || 'info@radheysteels.com',
+    //         phone: data.phone || '+91 7905245645 | +91 9389708460',
+    //       });
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching settings:', error);
+    //   }
+    // };
 
-    fetchSettings();
+    // fetchSettings();
   }, []);
 
   return (
@@ -46,7 +48,7 @@ export default function Footer() {
       className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 border-t border-blue-800 text-white py-12 md:py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8">
           <div>
             <Image 
               src="/logo.png" 
@@ -75,6 +77,20 @@ export default function Footer() {
             <p className="text-xs md:text-sm text-gray-200">
               Email: {settings.email}<br />
               Phone: {settings.phone}
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Address</h4>
+            <p className="text-xs md:text-sm text-gray-200 mb-3">
+              <span className="font-semibold">Sales Office:</span><br />
+              76-A Factory area fazalganj<br />
+              Kanpur-208012
+            </p>
+            <p className="text-xs md:text-sm text-gray-200">
+              <span className="font-semibold">Warehouse:</span><br />
+              Arazi no. 444/445 bhautipratappur<br />
+              Kanpur-209305
             </p>
           </div>
         </div>

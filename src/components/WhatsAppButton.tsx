@@ -1,7 +1,7 @@
 'use client';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '919876543210'; // Replace with your WhatsApp number (country code + number)
+  const phoneNumber = '917905245645'; // WhatsApp number: 7905245645 | Alternative: 9389708460
   const message = 'Hello! I am interested in your steel products.';
 
   const handleWhatsAppClick = () => {

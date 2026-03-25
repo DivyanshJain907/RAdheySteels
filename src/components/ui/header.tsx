@@ -65,8 +65,8 @@ function Header1() {
     const [isOpen, setOpen] = useState(false);
     return (
         <header className="w-full z-40 fixed top-0 left-0 bg-white border-b-2 border-blue-900 shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 md:px-6">
-                <div className="flex justify-between items-center min-h-20 md:min-h-28">
+            <div className="max-w-5xl mx-auto px-4 md:px-6">
+                <div className="flex justify-between items-center min-h-16 md:min-h-20">
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center flex-shrink-0">
                         <Image 
@@ -74,7 +74,7 @@ function Header1() {
                             alt="Radhey Raman Steels Logo" 
                             width={120} 
                             height={120}
-                            className="w-auto h-16 md:h-24"
+                            className="w-auto h-12 md:h-16"
                             priority
                         />
                     </Link>
@@ -84,7 +84,7 @@ function Header1() {
                         <NavigationMenuList className="flex gap-1">
                             {navigationItems.map((item) => (
                                 <NavigationMenuItem key={item.title}>
-                                    <NavigationMenuTrigger className="font-semibold text-sm md:text-base text-slate-900 hover:text-blue-900 transition-colors px-3 py-2">
+                                    <NavigationMenuTrigger className="font-semibold text-sm text-slate-900 hover:text-blue-900 transition-colors px-2 py-1">
                                         {item.title}
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent className="!w-[450px] p-4 bg-white rounded-lg">
