@@ -9,17 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue: "#3B82F6",
-        primary: "#1E3A8A",
-        navyDark: "#0F172A",
-        navyMid: "#1e293b",
-        navyLight: "#1e40af",
-        silver: "#E8E8E8",
-        dark: "#0F1117",
-        darkGray: "#1F2937",
-        lightGray: "#F3F4F6",
-        cream: "#FAFAF8",
-        stone: "#78716C",
+        blue: "#FF8C00",
+        primary: "#FFFFFF",
+        navyDark: "#404040",
+        navyMid: "#606060",
+        navyLight: "#808080",
+        silver: "#F5F5F5",
+        dark: "#505050",
+        darkGray: "#696969",
+        lightGray: "#F0F0F0",
+        cream: "#FFFFFF",
+        stone: "#A9A9A9",
       },
       fontFamily: {
         serif: ["Georgia", "serif"],

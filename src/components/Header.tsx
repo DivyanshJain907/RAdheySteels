@@ -36,7 +36,7 @@ export default function Header() {
       <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <motion.div
-            className="text-2xl font-bold text-blue-600"
+            className="text-2xl font-bold text-orange-500"
             whileHover={{ scale: 1.05 }}
           >
             ⚔️ {shopName}
@@ -44,20 +44,20 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex gap-8">
-          <Link href="/" className="text-darkGray hover:text-blue-600 transition font-medium">
+          <Link href="/" className="text-darkGray hover:text-orange-500 transition font-medium">
             Home
           </Link>
-          <Link href="/#products" className="text-darkGray hover:text-blue-600 transition font-medium">
+          <Link href="/#products" className="text-darkGray hover:text-orange-500 transition font-medium">
             Products
           </Link>
-          <Link href="/#contact" className="text-darkGray hover:text-blue-600 transition font-medium">
+          <Link href="/#contact" className="text-darkGray hover:text-orange-500 transition font-medium">
             Contact
           </Link>
         </nav>
 
         <Link
           href="/admin"
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md"
+          className="bg-orange-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-orange-600 transition shadow-md"
         >
           Admin
         </Link>

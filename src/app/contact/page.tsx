@@ -11,7 +11,7 @@ export default function ContactPage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -50,7 +50,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                     <span className="text-lg">📍</span>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                     <span className="text-lg">📞</span>
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                     <span className="text-lg">✉️</span>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
               <div className="flex gap-4">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                     <span className="text-lg">⏰</span>
                   </div>
                 </div>

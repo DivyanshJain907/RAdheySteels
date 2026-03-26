@@ -73,7 +73,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="Enter your password"
-                className="w-full px-4 py-2 md:py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition text-sm md:text-base"
+                className="w-full px-4 py-2 md:py-3 bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition text-sm md:text-base"
               />
             </div>
 
@@ -92,7 +92,7 @@ export default function AdminLogin() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full bg-blue text-white py-2 md:py-3 rounded font-bold hover:bg-primary transition disabled:opacity-50 text-sm md:text-base"
+              className="w-full bg-orange-500 text-white py-2 md:py-3 rounded font-bold hover:bg-orange-600 transition disabled:opacity-50 text-sm md:text-base"
             >
               {loading ? 'Logging in...' : 'Login'}
             </motion.button>

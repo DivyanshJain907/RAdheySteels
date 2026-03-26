@@ -9,7 +9,7 @@ export function ParticleTextDemo({
   width = 1000,
   height = 500
 }: DemoProps) {
-  return <div className="w-full h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
+  return <div className="w-full h-screen flex items-center justify-center bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700">
     <h1 className="text-4xl font-bold text-white">Demo Component</h1>
   </div>
 }

@@ -25,7 +25,7 @@ export default function ProductCard({
   return (
     <motion.div
       whileHover={{ y: -10 }}
-      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-blue transition group shadow-md hover:shadow-lg"
+      className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-orange-500 transition group shadow-md hover:shadow-lg"
     >
       {/* Image Container */}
       <div className="relative h-40 md:h-56 lg:h-64 bg-gray-200 overflow-hidden">
@@ -38,7 +38,7 @@ export default function ProductCard({
           />
         )}
         {featured && (
-          <div className="absolute top-4 right-4 bg-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+          <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
             Featured
           </div>
         )}
@@ -46,7 +46,7 @@ export default function ProductCard({
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-blue text-sm uppercase tracking-widest mb-2 font-semibold">
+        <p className="text-orange-500 text-sm uppercase tracking-widest mb-2 font-semibold">
           {category}
         </p>
         <h3 className="text-darkGray text-xl font-bold mb-2">{name}</h3>

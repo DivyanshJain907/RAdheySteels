@@ -69,7 +69,7 @@ export default function QuotePage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-8 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
+      <section className="relative w-full py-8 md:py-20 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -109,7 +109,7 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="Your name"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   />
                 </div>
 
@@ -123,7 +123,7 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="your@email.com"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   />
                 </div>
 
@@ -137,7 +137,7 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="+91 (555) 000-0000"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   />
                 </div>
 
@@ -150,7 +150,7 @@ export default function QuotePage() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Your company name"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   />
                 </div>
 
@@ -162,7 +162,7 @@ export default function QuotePage() {
                     value={formData.productType}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   >
                     <option value="">Select a product</option>
                     <option value="TMT Steel">TMT Steel</option>
@@ -183,7 +183,7 @@ export default function QuotePage() {
                     onChange={handleChange}
                     required
                     placeholder="100"
-                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                    className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function QuotePage() {
                   onChange={handleChange}
                   placeholder="Enter grade, size, dimensions or any specific requirements"
                   rows={3}
-                  className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+                  className="w-full px-3 py-2 md:px-4 md:py-3 text-sm bg-white text-darkGray placeholder-gray-400 rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition resize-none"
                 />
               </div>
 

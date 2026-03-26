@@ -11,7 +11,7 @@ export default function TestimonialsPage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}

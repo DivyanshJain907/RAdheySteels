@@ -43,7 +43,7 @@ export default function Home() {
   };
 
   return (
-    <main className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
+    <main className="bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700">
       <Header1 />
 
       {/* Enhanced Hero Section */}
@@ -79,7 +79,7 @@ export default function Home() {
             className="flex flex-col md:flex-row gap-6 justify-center items-center"
           >
             <Link href="/quote">
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-lg md:text-xl w-full md:w-auto shadow-lg hover:shadow-xl">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-700 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition transform hover:scale-105 text-lg md:text-xl w-full md:w-auto shadow-lg hover:shadow-xl">
                 Get a Quote
               </button>
             </Link>
@@ -96,9 +96,9 @@ export default function Home() {
       <section className="py-16 md:py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3 md:mb-4">Stockists of Renowned Brands</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-3 md:mb-4">Stockists of Renowned Brands</h2>
             <p className="text-gray-600 text-base md:text-lg">
-              <Link href="#" className="text-blue hover:underline">For more details - click here</Link>
+              <Link href="#" className="text-orange-500 hover:underline">For more details - click here</Link>
             </p>
           </div>
           <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 md:gap-8 items-center justify-center md:justify-between">
@@ -119,7 +119,7 @@ export default function Home() {
                   type: 'spring',
                   stiffness: 100
                 }}
-                className="bg-white p-3 md:p-6 rounded-xl border-4 border-blue hover:border-primary transition w-full md:w-1/4 flex items-center justify-center min-h-28 md:min-h-48 shadow-md hover:shadow-2xl"
+                className="bg-white p-3 md:p-6 rounded-xl border-4 border-orange-500 hover:border-orange-600 transition w-full md:w-1/4 flex items-center justify-center min-h-28 md:min-h-48 shadow-md hover:shadow-2xl"
               >
                 <motion.div
                   className="text-center w-full"
@@ -154,11 +154,11 @@ export default function Home() {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-blue font-semibold text-sm md:text-base uppercase tracking-wider"
+              className="text-orange-500 font-semibold text-sm md:text-base uppercase tracking-wider"
             >
               Our Products
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2\">Quality Steel Products</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2\">Quality Steel Products</h2>
             <p className="text-slate-700 text-base md:text-lg\">Wide range of premium RINL/SAIL steel products for all your needs</p>
           </motion.div>
 
@@ -192,7 +192,7 @@ export default function Home() {
             className="text-center mt-12 md:mt-16"
           >
             <Link href="/products">
-              <button className="bg-slate-900 hover:bg-slate-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg">
+              <button className="bg-gray-700 hover:bg-orange-500 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg">
                 View All Products
               </button>
             </Link>
@@ -211,11 +211,11 @@ export default function Home() {
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-blue font-semibold text-sm md:text-base uppercase tracking-wider"
+                className="text-orange-500 font-semibold text-sm md:text-base uppercase tracking-wider"
               >
                 About Us
               </motion.span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-6">Building Trust Since 1979</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mt-2 mb-6">Building Trust Since 1979</h2>
               <p className="text-slate-700 mb-4 text-base md:text-lg">
                 Radhey Raman Steel is a trusted authorized dealer of RINL/SAIL steel products, serving the construction and industrial sectors for over 45 years.
               </p>
@@ -223,7 +223,7 @@ export default function Home() {
                 We are committed to providing premium quality steel products at competitive prices with exceptional customer service and timely delivery.
               </p>
               <Link href="/about">
-                <button className="bg-slate-900 hover:bg-slate-800 text-white px-6 md:px-8 py-3 rounded-lg font-bold transition">
+                <button className="bg-gray-700 hover:bg-orange-500 text-white px-6 md:px-8 py-3 rounded-lg font-bold transition">
                   Learn More
                 </button>
               </Link>
@@ -231,7 +231,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 p-8 md:p-10 rounded-lg text-white"
+              className="bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700 p-8 md:p-10 rounded-lg text-white"
             >
               <h3 className="text-2xl md:text-3xl font-bold mb-6">Our Strengths</h3>
               <ul className="space-y-4">
@@ -265,11 +265,11 @@ export default function Home() {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-blue font-semibold text-sm md:text-base uppercase tracking-wider"
+              className="text-orange-500 font-semibold text-sm md:text-base uppercase tracking-wider"
             >
               Our Services
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2">Comprehensive Solutions</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2">Comprehensive Solutions</h2>
             <p className="text-slate-700 text-base md:text-lg">Everything you need for your steel requirements</p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -286,9 +286,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-blue hover:shadow-lg transition hover:border-slate-900"
+                className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-orange-500 hover:shadow-lg transition hover:border-orange-600"
               >
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3\">{item.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-gray-700 mb-3\">{item.title}</h3>
                 <p className="text-slate-700 text-sm md:text-base\">{item.desc}</p>
               </motion.div>
             ))}
@@ -299,7 +299,7 @@ export default function Home() {
             className="text-center mt-12 md:mt-16"
           >
             <Link href="/services">
-              <button className="bg-slate-900 hover:bg-slate-800 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg\">
+              <button className="bg-gray-700 hover:bg-orange-500 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg\">
                 View All Services
               </button>
             </Link>
@@ -311,7 +311,7 @@ export default function Home() {
       <Timeline />
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800">
+      <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -335,7 +335,7 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center"
           >
             <Link href="/quote">
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg w-full sm:w-auto\">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-700 px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg w-full sm:w-auto\">
                 Get a Quote
               </button>
             </Link>
@@ -344,34 +344,6 @@ export default function Home() {
                 Contact Us
               </button>
             </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-24 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-center mb-8 md:mb-12"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-blue font-semibold text-sm md:text-base uppercase tracking-wider"
-            >
-              Get In Touch
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-slate-900 mt-2\">We&apos;d Love to Hear From You</h2>
-            <p className="text-slate-700 text-base md:text-lg\">Send us a message and we&apos;ll respond as soon as possible</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <ContactForm />
           </motion.div>
         </div>
       </section>

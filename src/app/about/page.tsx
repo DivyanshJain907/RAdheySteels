@@ -10,7 +10,7 @@ export default function AboutPage() {
       <Header1 />
 
       {/* Hero Section */}
-      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white px-4 -mt-16">
+      <section className="relative w-full py-12 md:py-20 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700 text-white px-4 -mt-16">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              className="bg-blue text-white p-6 md:p-8 rounded-lg"
+              className="bg-orange-500 text-white p-6 md:p-8 rounded-lg"
             >
               <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Key Facts</h3>
               <ul className="space-y-3">
@@ -90,7 +90,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="border-l-4 border-blue pl-6"
+              className="border-l-4 border-orange-500 pl-6"
             >
               <h3 className="text-2xl font-bold text-darkGray mb-3">Our Mission</h3>
               <p className="text-gray-600">
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="border-l-4 border-blue pl-6"
+              className="border-l-4 border-orange-500 pl-6"
             >
               <h3 className="text-2xl font-bold text-darkGray mb-3">Our Vision</h3>
               <p className="text-gray-600">
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white p-6 rounded-lg border border-gray-200"
               >
-                <h3 className="text-xl font-bold text-blue mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold text-orange-500 mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
               </motion.div>
             ))}

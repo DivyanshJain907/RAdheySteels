@@ -45,7 +45,7 @@ export default function Footer() {
     <motion.footer
       initial={{ y: 100 }}
       whileInView={{ y: 0 }}
-      className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 border-t border-blue-800 text-white py-12 md:py-16"
+      className="bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 border-t border-gray-600 text-white py-12 md:py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-8">
@@ -108,7 +108,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-blue-700 pt-6 md:pt-8 text-center text-xs md:text-sm text-gray-300">
+        <div className="border-t border-orange-600 pt-6 md:pt-8 text-center text-xs md:text-sm text-gray-300">
           <p>&copy; 2026 {settings.shopName}. All rights reserved.</p>
           <p className="mt-2">
             Developed by <a href="https://divyanshjainportfolio.vercel.app" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">Jain Agency</a>

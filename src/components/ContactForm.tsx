@@ -56,7 +56,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue focus:ring-1 focus:ring-blue outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition"
         />
       </div>
 
@@ -68,7 +68,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue focus:ring-1 focus:ring-blue outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition"
         />
       </div>
 
@@ -79,7 +79,7 @@ export default function ContactForm() {
           placeholder="Your Phone"
           value={formData.phone}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue focus:ring-1 focus:ring-blue outline-none transition"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition"
         />
       </div>
 
@@ -91,7 +91,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={3}
-          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-blue focus:ring-1 focus:ring-blue outline-none transition resize-none"
+          className="w-full px-4 py-3 bg-white text-darkGray placeholder-gray-400 rounded-lg border border-gray-300 focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition resize-none"
         />
       </div>
 
@@ -100,7 +100,7 @@ export default function ContactForm() {
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={loading}
-        className="w-full bg-blue text-white py-3 rounded-lg font-bold hover:bg-primary transition disabled:opacity-50 shadow-md"
+        className="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition disabled:opacity-50 shadow-md"
       >
         {loading ? 'Sending...' : 'Send Message'}
       </motion.button>

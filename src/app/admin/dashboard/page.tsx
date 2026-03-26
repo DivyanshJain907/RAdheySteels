@@ -28,7 +28,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin text-blue text-3xl">⟳</div>
+        <div className="animate-spin text-orange-500 text-3xl">⟳</div>
       </div>
     );
   }
@@ -46,7 +46,7 @@ export default function AdminDashboard() {
           <div className="flex gap-2 md:gap-4 w-full md:w-auto">
             <button
               onClick={() => router.push('/')}
-              className="flex-1 md:flex-none bg-blue text-white px-4 md:px-6 py-2 rounded hover:bg-primary transition text-sm md:text-base"
+              className="flex-1 md:flex-none bg-orange-500 text-white px-4 md:px-6 py-2 rounded hover:bg-orange-600 transition text-sm md:text-base"
             >
               Landing Page
             </button>
@@ -69,8 +69,8 @@ export default function AdminDashboard() {
               onClick={() => setActiveTab(tab)}
               className={`px-4 md:px-6 py-3 md:py-4 font-semibold transition border-b-2 capitalize text-sm md:text-base ${
                 activeTab === tab
-                  ? 'text-blue border-blue'
-                  : 'text-gray-500 border-transparent hover:text-blue'
+                  ? 'text-orange-500 border-orange-500'
+                  : 'text-gray-500 border-transparent hover:text-orange-500'
               }`}
             >
               {tab}
@@ -174,7 +174,7 @@ function ProductsTab() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           onClick={() => setShowForm(!showForm)}
-          className="bg-blue text-white px-6 py-3 rounded font-bold"
+          className="bg-orange-500 text-white px-6 py-3 rounded font-bold"
         >
           {showForm ? 'Cancel' : '+ Add Product'}
         </motion.button>
@@ -193,7 +193,7 @@ function ProductsTab() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <input
@@ -202,7 +202,7 @@ function ProductsTab() {
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
               required
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <textarea
@@ -210,7 +210,7 @@ function ProductsTab() {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition resize-none"
               rows={3}
             />
 
@@ -219,7 +219,7 @@ function ProductsTab() {
               placeholder="Image URL"
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <label className="flex items-center gap-2 col-span-2">
@@ -234,7 +234,7 @@ function ProductsTab() {
 
             <button
               type="submit"
-              className="col-span-2 bg-blue text-white py-3 rounded font-bold hover:bg-primary transition"
+              className="col-span-2 bg-orange-500 text-white py-3 rounded font-bold hover:bg-orange-600 transition"
             >
               Add Product
             </button>
@@ -315,7 +315,7 @@ function ContactsTab() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-black">{contact.name}</h3>
-                  <p className="text-blue">{contact.email}</p>
+                  <p className="text-orange-500">{contact.email}</p>
                   {contact.phone && <p className="text-gray-600">{contact.phone}</p>}
                 </div>
                 <span className="text-sm text-gray-500">
@@ -426,7 +426,7 @@ function SettingsTab() {
                   type="text"
                   value={settings.shopName}
                   onChange={(e) => setSettings({ ...settings, shopName: e.target.value })}
-                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                 />
               </div>
 
@@ -436,7 +436,7 @@ function SettingsTab() {
                   type="email"
                   value={settings.email}
                   onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                 />
               </div>
 
@@ -446,7 +446,7 @@ function SettingsTab() {
                   type="tel"
                   value={settings.phone}
                   onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+                  className="w-full px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
                 />
               </div>
             </div>
@@ -469,7 +469,7 @@ function SettingsTab() {
           <button
             onClick={handleSaveSettings}
             disabled={saving}
-            className="bg-blue text-white px-6 py-3 rounded font-bold hover:bg-primary transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-orange-500 text-white px-6 py-3 rounded font-bold hover:bg-orange-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? 'Saving...' : 'Save Changes'}
           </button>
@@ -568,7 +568,7 @@ function TimelineTab() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           onClick={() => setShowForm(!showForm)}
-          className="bg-blue text-white px-6 py-3 rounded font-bold"
+          className="bg-orange-500 text-white px-6 py-3 rounded font-bold"
         >
           {showForm ? 'Cancel' : '+ Add Timeline Entry'}
         </motion.button>
@@ -587,7 +587,7 @@ function TimelineTab() {
               value={formData.heading}
               onChange={(e) => setFormData({ ...formData, heading: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <input
@@ -596,7 +596,7 @@ function TimelineTab() {
               value={formData.year}
               onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
               required
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <input
@@ -604,7 +604,7 @@ function TimelineTab() {
               placeholder="Image URL"
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition"
+              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
             <textarea
@@ -612,13 +612,13 @@ function TimelineTab() {
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-blue focus:ring-2 focus:ring-blue outline-none transition resize-none"
+              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition resize-none"
               rows={3}
             />
 
             <button
               type="submit"
-              className="col-span-2 bg-blue text-white py-3 rounded font-bold hover:bg-primary transition"
+              className="col-span-2 bg-orange-500 text-white py-3 rounded font-bold hover:bg-orange-600 transition"
             >
               Add Entry
             </button>
@@ -638,7 +638,7 @@ function TimelineTab() {
               <div className="flex justify-between items-start gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-blue font-bold text-lg">{entry.year}</span>
+                    <span className="text-orange-500 font-bold text-lg">{entry.year}</span>
                     <h3 className="text-lg font-bold text-darkGray">{entry.heading}</h3>
                   </div>
                   <p className="text-gray-600 text-sm mb-2">{entry.description}</p>

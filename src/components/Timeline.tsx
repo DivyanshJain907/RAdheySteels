@@ -39,7 +39,7 @@ export function Timeline() {
   if (loading) {
     return (
       <div className="py-16 md:py-24 px-4 bg-white text-center">
-        <div className="animate-spin text-blue text-3xl">⟳</div>
+        <div className="animate-spin text-orange-500 text-3xl">⟳</div>
       </div>
     );
   }
@@ -55,11 +55,11 @@ export function Timeline() {
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-blue font-semibold text-sm md:text-base uppercase tracking-wider"
+            className="text-orange-500 font-semibold text-sm md:text-base uppercase tracking-wider"
           >
             Our Journey
           </motion.span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 mt-2">Our Contributions</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-gray-700 mt-2">Our Contributions</h2>
           <p className="text-slate-700 text-base md:text-lg">
             Discover the milestones and achievements that define our success as Radhey Raman Steel Suppliers.
           </p>
@@ -68,7 +68,7 @@ export function Timeline() {
         {timelineEntries.length > 0 ? (
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue to-transparent hidden md:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-orange-500 to-transparent hidden md:block"></div>
 
             <div className="space-y-12 md:space-y-16">
               {timelineEntries.map((entry, index) => (
@@ -83,9 +83,9 @@ export function Timeline() {
                 >
                   {/* Content */}
                   <div className="w-full md:w-1/2">
-                    <div className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-blue hover:shadow-lg transition">
-                      <div className="text-blue font-bold text-2xl md:text-3xl mb-2">{entry.year}</div>
-                      <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">{entry.heading}</h3>
+                    <div className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-orange-500 hover:shadow-lg transition">
+                      <div className="text-orange-500 font-bold text-2xl md:text-3xl mb-2">{entry.year}</div>
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-700 mb-3">{entry.heading}</h3>
                       <p className="text-slate-700 text-base leading-relaxed mb-4">{entry.description}</p>
                     </div>
                   </div>
@@ -96,7 +96,7 @@ export function Timeline() {
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
-                      className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-blue rounded-full border-4 border-white shadow-lg z-10"
+                      className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10"
                     ></motion.div>
 
                     {/* Image */}
