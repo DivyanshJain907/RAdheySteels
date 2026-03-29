@@ -483,9 +483,9 @@ function TimelineTab() {
   const [timelineEntries, setTimelineEntries] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     heading: '',
-    description: '',
     year: new Date().getFullYear(),
     image: '',
   });
@@ -513,8 +513,11 @@ function TimelineTab() {
     const token = localStorage.getItem('adminToken');
 
     try {
-      const response = await fetch('/api/timeline', {
-        method: 'POST',
+      const url = editingId ? `/api/timeline/${editingId}` : '/api/timeline';
+      const method = editingId ? 'PUT' : 'POST';
+
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
           'x-admin-secret': token || '',
@@ -528,15 +531,15 @@ function TimelineTab() {
       if (response.ok) {
         setFormData({
           heading: '',
-          description: '',
           year: new Date().getFullYear(),
           image: '',
         });
+        setEditingId(null);
         setShowForm(false);
         fetchTimeline();
       }
     } catch (error) {
-      console.error('Error adding timeline entry:', error);
+      console.error('Error saving timeline entry:', error);
     }
   };
 
@@ -557,6 +560,16 @@ function TimelineTab() {
     }
   };
 
+  const handleEditEntry = (entry: any) => {
+    setFormData({
+      heading: entry.heading,
+      year: entry.year,
+      image: entry.image || '',
+    });
+    setEditingId(entry._id);
+    setShowForm(true);
+  };
+
   if (loading) {
     return <div className="text-center py-20 text-gray-600">Loading timeline...</div>;
   }
@@ -567,7 +580,19 @@ function TimelineTab() {
         <h2 className="text-3xl font-bold text-black">Timeline Management</h2>
         <motion.button
           whileHover={{ scale: 1.05 }}
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => {
+            if (showForm) {
+              setShowForm(false);
+              setEditingId(null);
+              setFormData({
+                heading: '',
+                year: new Date().getFullYear(),
+                image: '',
+              });
+            } else {
+              setShowForm(true);
+            }
+          }}
           className="bg-orange-500 text-white px-6 py-3 rounded font-bold"
         >
           {showForm ? 'Cancel' : '+ Add Timeline Entry'}
@@ -580,6 +605,7 @@ function TimelineTab() {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-lg p-8 mb-8 border border-gray-200 shadow-lg"
         >
+          <h3 className="text-xl font-bold mb-6 text-black">{editingId ? 'Edit Timeline Entry' : 'Add New Timeline Entry'}</h3>
           <form onSubmit={handleAddEntry} className="grid grid-cols-2 gap-4">
             <input
               type="text"
@@ -607,20 +633,11 @@ function TimelineTab() {
               className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
             />
 
-            <textarea
-              placeholder="Description"
-              value={formData.description}
-              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition resize-none"
-              rows={3}
-            />
-
             <button
               type="submit"
               className="col-span-2 bg-orange-500 text-white py-3 rounded font-bold hover:bg-orange-600 transition"
             >
-              Add Entry
+              {editingId ? 'Update Entry' : 'Add Entry'}
             </button>
           </form>
         </motion.div>
@@ -635,23 +652,30 @@ function TimelineTab() {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
             >
-              <div className="flex justify-between items-start gap-4">
+              <div className="flex justify-between items-center gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-orange-500 font-bold text-lg">{entry.year}</span>
                     <h3 className="text-lg font-bold text-darkGray">{entry.heading}</h3>
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{entry.description}</p>
                   {entry.image && (
                     <p className="text-xs text-gray-500">Image URL: {entry.image.substring(0, 50)}...</p>
                   )}
                 </div>
-                <button
-                  onClick={() => handleDeleteEntry(entry._id)}
-                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition font-semibold text-sm"
-                >
-                  Delete
-                </button>
+                <div className="flex gap-2 flex-shrink-0">
+                  <button
+                    onClick={() => handleEditEntry(entry)}
+                    className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition font-semibold text-sm whitespace-nowrap"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDeleteEntry(entry._id)}
+                    className="bg-slate-700 text-white px-6 py-2 rounded hover:bg-slate-800 transition font-semibold text-sm whitespace-nowrap"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))

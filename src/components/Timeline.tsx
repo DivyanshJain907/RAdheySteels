@@ -86,7 +86,6 @@ export function Timeline() {
                     <div className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-orange-500 hover:shadow-lg transition">
                       <div className="text-orange-500 font-bold text-2xl md:text-3xl mb-2">{entry.year}</div>
                       <h3 className="text-xl md:text-2xl font-bold text-gray-700 mb-3">{entry.heading}</h3>
-                      <p className="text-slate-700 text-base leading-relaxed mb-4">{entry.description}</p>
                     </div>
                   </div>
 
