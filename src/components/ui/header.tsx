@@ -29,11 +29,11 @@ function Header1() {
                     href: "/products",
                 },
                 {
-                    title: "Wire Rods",
+                    title: "Steel Tubes / Pipes",
                     href: "/products",
                 },
                 {
-                    title: "Steel Plates",
+                    title: "Roofing Profile Sheets",
                     href: "/products",
                 },
             ],
