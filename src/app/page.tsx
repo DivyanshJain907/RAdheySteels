@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Header1 } from '@/components/ui/header';
 import Footer from '@/components/Footer';
-import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Timeline } from '@/components/Timeline';
+import { ProductCarousel } from '@/components/ui/product-carousel';
 
 interface Product {
   _id: string;
@@ -21,27 +21,6 @@ interface Product {
 }
 
 export default function Home() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('/api/products');
-      if (response.ok) {
-        const data = await response.json();
-        setProducts(data);
-      }
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <main className="bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700">
       <Header1 />
@@ -158,34 +137,12 @@ export default function Home() {
             >
               Our Products
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2\">Quality Steel Products</h2>
-            <p className="text-slate-700 text-base md:text-lg\">Wide range of premium RINL/SAIL steel products for all your needs</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2">Quality Steel Products</h2>
+            <p className="text-slate-700 text-base md:text-lg">Wide range of premium RINL/SAIL steel products for all your needs</p>
           </motion.div>
 
-          {loading ? (
-            <div className="text-center py-20">
-              <div className="inline-block animate-spin">⟳</div>
-              <p className="text-slate-700 mt-4">Loading products...</p>
-            </div>
-          ) : products.filter(p => p.featured).length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {products.filter(p => p.featured).map((product, index) => (
-                <motion.div
-                  key={product._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <ProductCard {...product} />
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <p className="text-slate-700 mb-4">No featured products yet. Mark products as featured in admin dashboard.</p>
-              <p className="text-slate-600">Featured products will appear here.</p>
-            </div>
-          )}
+          {/* Product Carousel */}
+          <ProductCarousel />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

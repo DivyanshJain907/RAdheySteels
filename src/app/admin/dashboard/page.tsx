@@ -295,7 +295,7 @@ function ProductsTab() {
             >
               <div>
                 <h3 className="text-xl font-bold text-black">{product.name}</h3>
-                <p className="text-gray-600">{product.category} - ${product.price}</p>
+                <p className="text-gray-600">{product.category}</p>
               </div>
 
               <div className="flex gap-2 flex-shrink-0">
