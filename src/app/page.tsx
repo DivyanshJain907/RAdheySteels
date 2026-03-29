@@ -167,9 +167,9 @@ export default function Home() {
               <div className="inline-block animate-spin">⟳</div>
               <p className="text-slate-700 mt-4">Loading products...</p>
             </div>
-          ) : products.length > 0 ? (
+          ) : products.filter(p => p.featured).length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {products.map((product, index) => (
+              {products.filter(p => p.featured).map((product, index) => (
                 <motion.div
                   key={product._id}
                   initial={{ opacity: 0, y: 20 }}
@@ -182,8 +182,8 @@ export default function Home() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-slate-700 mb-4">No products available yet.</p>
-              <p className="text-slate-600">Products will be added soon.</p>
+              <p className="text-slate-700 mb-4">No featured products yet. Mark products as featured in admin dashboard.</p>
+              <p className="text-slate-600">Featured products will appear here.</p>
             </div>
           )}
           <motion.div

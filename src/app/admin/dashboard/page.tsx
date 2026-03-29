@@ -94,6 +94,7 @@ function ProductsTab() {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -124,14 +125,22 @@ function ProductsTab() {
     e.preventDefault();
     const token = localStorage.getItem('adminToken');
 
+    console.log('Submitting product with featured value:', formData.featured);
+
     try {
-      const response = await fetch('/api/products', {
-        method: 'POST',
+      const url = editingId ? `/api/products/${editingId}` : '/api/products';
+      const method = editingId ? 'PUT' : 'POST';
+
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
           'x-admin-secret': token || '',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          featured: formData.featured === true ? true : false,
+        }),
       });
 
       if (response.ok) {
@@ -142,11 +151,17 @@ function ProductsTab() {
           image: '',
           featured: false,
         });
+        setEditingId(null);
         setShowForm(false);
         fetchProducts();
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || 'Failed to save product'}`);
+        console.error('Error response:', errorData);
       }
     } catch (error) {
-      console.error('Error adding product:', error);
+      console.error('Error saving product:', error);
+      alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 
@@ -167,13 +182,39 @@ function ProductsTab() {
     }
   };
 
+  const handleEditProduct = (product: any) => {
+    setFormData({
+      name: product.name,
+      description: product.description,
+      category: product.category,
+      image: product.image || '',
+      featured: product.featured || false,
+    });
+    setEditingId(product._id);
+    setShowForm(true);
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-bold text-black">Products Management</h2>
         <motion.button
           whileHover={{ scale: 1.05 }}
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => {
+            if (showForm) {
+              setShowForm(false);
+              setEditingId(null);
+              setFormData({
+                name: '',
+                description: '',
+                category: '',
+                image: '',
+                featured: false,
+              });
+            } else {
+              setShowForm(true);
+            }
+          }}
           className="bg-orange-500 text-white px-6 py-3 rounded font-bold"
         >
           {showForm ? 'Cancel' : '+ Add Product'}
@@ -186,6 +227,7 @@ function ProductsTab() {
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-lg p-8 mb-8 border border-gray-200 shadow-lg"
         >
+          <h3 className="text-xl font-bold mb-6 text-black">{editingId ? 'Edit Product' : 'Add New Product'}</h3>
           <form onSubmit={handleAddProduct} className="grid grid-cols-2 gap-4">
             <input
               type="text"
@@ -236,7 +278,7 @@ function ProductsTab() {
               type="submit"
               className="col-span-2 bg-orange-500 text-white py-3 rounded font-bold hover:bg-orange-600 transition"
             >
-              Add Product
+              {editingId ? 'Update Product' : 'Add Product'}
             </button>
           </form>
         </motion.div>
@@ -256,12 +298,20 @@ function ProductsTab() {
                 <p className="text-gray-600">{product.category} - ${product.price}</p>
               </div>
 
-              <button
-                onClick={() => handleDeleteProduct(product._id)}
-                className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-              >
-                Delete
-              </button>
+              <div className="flex gap-2 flex-shrink-0">
+                <button
+                  onClick={() => handleEditProduct(product)}
+                  className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition font-semibold text-sm whitespace-nowrap"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDeleteProduct(product._id)}
+                  className="bg-slate-700 text-white px-6 py-2 rounded hover:bg-slate-800 transition font-semibold text-sm whitespace-nowrap"
+                >
+                  Delete
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>
