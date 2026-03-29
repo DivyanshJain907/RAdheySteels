@@ -57,25 +57,23 @@ export const ProductCarousel = () => {
   return (
     <>
       <div className="w-full bg-white py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative w-full overflow-hidden">
-            <div className="animate-scroll flex gap-6">
-              {duplicatedProducts.map((product, index) => (
-                <div
-                  key={`${product._id}-${index}`}
-                  className="flex-shrink-0 w-48 md:w-64 lg:w-80"
-                >
-                  <ProductCard
-                    _id={product._id}
-                    name={product.name}
-                    image={product.image}
-                    category={product.category}
-                    description={product.description}
-                    featured={product.featured}
-                  />
-                </div>
-              ))}
-            </div>
+        <div className="relative w-full overflow-hidden px-2 sm:px-4">
+          <div className="animate-scroll flex gap-6">
+            {duplicatedProducts.map((product, index) => (
+              <div
+                key={`${product._id}-${index}`}
+                className="flex-shrink-0 w-48 md:w-64 lg:w-80"
+              >
+                <ProductCard
+                  _id={product._id}
+                  name={product.name}
+                  image={product.image}
+                  category={product.category}
+                  description={product.description}
+                  featured={product.featured}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

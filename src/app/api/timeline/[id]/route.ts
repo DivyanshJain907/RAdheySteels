@@ -17,14 +17,22 @@ export async function PUT(
 
     const { id } = await params;
     const body = await request.json();
+
+    // Validate required fields
+    if (!body.heading || !body.year) {
+      return NextResponse.json(
+        { error: 'Missing required fields: heading and year are required' },
+        { status: 400 }
+      );
+    }
     
     await dbConnect();
     const result = await Timeline.findByIdAndUpdate(
       id,
       {
         heading: body.heading,
-        year: body.year,
-        image: body.image,
+        year: parseInt(body.year),
+        image: body.image || '',
       },
       { new: true }
     );
@@ -38,8 +46,9 @@ export async function PUT(
 
     return NextResponse.json(result);
   } catch (error: any) {
+    console.error('Timeline PUT error:', error);
     return NextResponse.json(
-      { error: error.message },
+      { error: error.message || 'Failed to update timeline entry' },
       { status: 500 }
     );
   }

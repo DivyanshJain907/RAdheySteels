@@ -28,13 +28,26 @@ export async function POST(request: NextRequest) {
     await dbConnect();
     const body = await request.json();
 
-    const entry = new Timeline(body);
+    // Validate required fields
+    if (!body.heading || !body.year) {
+      return NextResponse.json(
+        { error: 'Missing required fields: heading and year are required' },
+        { status: 400 }
+      );
+    }
+
+    const entry = new Timeline({
+      heading: body.heading,
+      year: parseInt(body.year),
+      image: body.image || '',
+    });
     await entry.save();
 
     return NextResponse.json(entry, { status: 201 });
   } catch (error: any) {
+    console.error('Timeline POST error:', error);
     return NextResponse.json(
-      { error: error.message },
+      { error: error.message || 'Failed to create timeline entry' },
       { status: 400 }
     );
   }

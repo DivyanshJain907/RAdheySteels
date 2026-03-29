@@ -573,8 +573,9 @@ function TimelineTab() {
           'x-admin-secret': token || '',
         },
         body: JSON.stringify({
-          ...formData,
+          heading: formData.heading,
           year: parseInt(formData.year.toString()),
+          image: formData.image || '',
         }),
       });
 
@@ -587,9 +588,13 @@ function TimelineTab() {
         setEditingId(null);
         setShowForm(false);
         fetchTimeline();
+      } else {
+        const errorData = await response.json();
+        alert('Error: ' + (errorData.error || 'Failed to save timeline entry'));
       }
     } catch (error) {
       console.error('Error saving timeline entry:', error);
+      alert('Error saving timeline entry: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
@@ -626,8 +631,8 @@ function TimelineTab() {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-black">Timeline Management</h2>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 gap-3">
+        <h2 className="text-2xl md:text-3xl font-bold text-black">Timeline Management</h2>
         <motion.button
           whileHover={{ scale: 1.05 }}
           onClick={() => {
@@ -643,7 +648,7 @@ function TimelineTab() {
               setShowForm(true);
             }
           }}
-          className="bg-orange-500 text-white px-6 py-3 rounded font-bold"
+          className="w-full md:w-auto bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 rounded font-bold text-sm md:text-base"
         >
           {showForm ? 'Cancel' : '+ Add Timeline Entry'}
         </motion.button>
@@ -653,17 +658,17 @@ function TimelineTab() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-lg p-8 mb-8 border border-gray-200 shadow-lg"
+          className="bg-white rounded-lg p-4 md:p-8 mb-6 md:mb-8 border border-gray-200 shadow-lg"
         >
-          <h3 className="text-xl font-bold mb-6 text-black">{editingId ? 'Edit Timeline Entry' : 'Add New Timeline Entry'}</h3>
-          <form onSubmit={handleAddEntry} className="grid grid-cols-2 gap-4">
+          <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-black">{editingId ? 'Edit Timeline Entry' : 'Add New Timeline Entry'}</h3>
+          <form onSubmit={handleAddEntry} className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <input
               type="text"
               placeholder="Heading"
               value={formData.heading}
               onChange={(e) => setFormData({ ...formData, heading: e.target.value })}
               required
-              className="col-span-2 px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
+              className="col-span-1 md:col-span-2 px-3 md:px-4 py-2 md:py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition text-sm md:text-base"
             />
 
             <input
@@ -672,7 +677,7 @@ function TimelineTab() {
               value={formData.year}
               onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
               required
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
+              className="px-3 md:px-4 py-2 md:py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition text-sm md:text-base"
             />
 
             <input
@@ -680,12 +685,12 @@ function TimelineTab() {
               placeholder="Image URL"
               value={formData.image}
               onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-              className="px-4 py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition"
+              className="px-3 md:px-4 py-2 md:py-3 bg-white text-darkGray rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 outline-none transition text-sm md:text-base"
             />
 
             <button
               type="submit"
-              className="col-span-2 bg-orange-500 text-white py-3 rounded font-bold hover:bg-orange-600 transition"
+              className="col-span-1 md:col-span-2 bg-orange-500 text-white py-2 md:py-3 rounded font-bold hover:bg-orange-600 transition text-sm md:text-base"
             >
               {editingId ? 'Update Entry' : 'Add Entry'}
             </button>
@@ -693,35 +698,35 @@ function TimelineTab() {
         </motion.div>
       )}
 
-      <div className="space-y-4">
+      <div className="space-y-3 md:space-y-4">
         {timelineEntries.length > 0 ? (
           timelineEntries.map((entry) => (
             <motion.div
               key={entry._id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
+              className="bg-white rounded-lg p-4 md:p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
             >
-              <div className="flex justify-between items-center gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-orange-500 font-bold text-lg">{entry.year}</span>
-                    <h3 className="text-lg font-bold text-darkGray">{entry.heading}</h3>
+              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 md:gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+                    <span className="text-orange-500 font-bold text-base md:text-lg">{entry.year}</span>
+                    <h3 className="text-base md:text-lg font-bold text-darkGray break-words">{entry.heading}</h3>
                   </div>
                   {entry.image && (
-                    <p className="text-xs text-gray-500">Image URL: {entry.image.substring(0, 50)}...</p>
+                    <p className="text-xs text-gray-500 break-all">Image URL: {entry.image.substring(0, 50)}...</p>
                   )}
                 </div>
-                <div className="flex gap-2 flex-shrink-0">
+                <div className="flex gap-2 flex-shrink-0 w-full md:w-auto">
                   <button
                     onClick={() => handleEditEntry(entry)}
-                    className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition font-semibold text-sm whitespace-nowrap"
+                    className="flex-1 md:flex-none bg-orange-500 text-white px-4 md:px-6 py-2 rounded hover:bg-orange-600 transition font-semibold text-xs md:text-sm whitespace-nowrap"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDeleteEntry(entry._id)}
-                    className="bg-slate-700 text-white px-6 py-2 rounded hover:bg-slate-800 transition font-semibold text-sm whitespace-nowrap"
+                    className="flex-1 md:flex-none bg-slate-700 text-white px-4 md:px-6 py-2 rounded hover:bg-slate-800 transition font-semibold text-xs md:text-sm whitespace-nowrap"
                   >
                     Delete
                   </button>
@@ -730,8 +735,8 @@ function TimelineTab() {
             </motion.div>
           ))
         ) : (
-          <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-300">
-            <p className="text-gray-600">No timeline entries yet. Create your first entry!</p>
+          <div className="text-center py-8 md:py-12 bg-gray-50 rounded-lg border border-gray-300">
+            <p className="text-gray-600 text-sm md:text-base">No timeline entries yet. Create your first entry!</p>
           </div>
         )}
       </div>

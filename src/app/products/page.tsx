@@ -36,8 +36,11 @@ export default function ProductsPage() {
         setProducts(data);
         setFilteredProducts(data);
 
-        // Extract unique categories
-        const uniqueCategories = ['All', ...new Set(data.map((p: Product) => p.category))];
+        // Extract unique categories (case-insensitive and trim whitespace)
+        const categorySet = new Set(
+          data.map((p: Product) => p.category.trim().toUpperCase())
+        );
+        const uniqueCategories = ['All', ...Array.from(categorySet)];
         setCategories(uniqueCategories as string[]);
       }
     } catch (error) {
@@ -52,7 +55,7 @@ export default function ProductsPage() {
     if (category === 'All') {
       setFilteredProducts(products);
     } else {
-      setFilteredProducts(products.filter(p => p.category === category));
+      setFilteredProducts(products.filter(p => p.category.trim().toUpperCase() === category));
     }
   };
 
