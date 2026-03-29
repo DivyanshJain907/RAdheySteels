@@ -212,58 +212,6 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-center mb-12 md:mb-16"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="text-orange-500 font-semibold text-sm md:text-base uppercase tracking-wider"
-            >
-              Our Services
-            </motion.span>
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2">Comprehensive Solutions</h2>
-            <p className="text-slate-700 text-base md:text-lg">Everything you need for your steel requirements</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              { title: 'Bulk Supply', desc: 'Large quantity supply with volume discounts' },
-              { title: 'Fast Delivery', desc: 'Same-day or scheduled delivery' },
-              { title: 'Quality Checked', desc: 'All products thoroughly inspected' },
-              { title: 'Expert Support', desc: 'Technical guidance for your projects' },
-              { title: 'Custom Orders', desc: 'Tailored solutions for specific needs' },
-              { title: 'Warranty', desc: 'Full warranty and after-sales support' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-slate-50 p-6 md:p-8 rounded-lg border-l-4 border-orange-500 hover:shadow-lg transition hover:border-orange-600"
-              >
-                <h3 className="text-lg md:text-xl font-bold text-gray-700 mb-3\">{item.title}</h3>
-                <p className="text-slate-700 text-sm md:text-base\">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mt-12 md:mt-16"
-          >
-            <Link href="/services">
-              <button className="bg-gray-700 hover:bg-orange-500 text-white px-8 md:px-12 py-3 md:py-4 rounded-lg font-bold transition text-base md:text-lg\">
-                View All Services
-              </button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Timeline Section */}
       <Timeline />
 
