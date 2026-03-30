@@ -32,6 +32,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload Google Fonts to avoid render blocking */}
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Georgia:ital@0;1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="bg-white text-gray-700 pt-16 md:pt-32">
         {children}
         <WhatsAppButton />

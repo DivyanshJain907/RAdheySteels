@@ -27,7 +27,7 @@ export default function Home() {
 
       {/* Enhanced Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden -mt-16" style={{
-        backgroundImage: 'url(/bg.png)',
+        backgroundImage: 'url(/bg.webp), url(/bg.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
