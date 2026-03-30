@@ -46,10 +46,11 @@ export default function Home() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-2xl text-gray-200 mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
-            style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}
+            className="text-xl md:text-3xl text-white mb-10 md:mb-14 max-w-2xl mx-auto leading-relaxed drop-shadow-lg font-semibold"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), 3px 3px 6px rgba(0,0,0,0.5)' }}
           >
-            Authorized RINL/SAIL dealer providing trusted steel products for construction and industry
+            One stop solution for all your steel requirements.
+            Authorised dealer of Sail/RINL in Uttar Pradesh
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: -10 }}

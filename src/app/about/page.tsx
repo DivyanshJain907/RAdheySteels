@@ -27,6 +27,16 @@ export default function AboutPage() {
           >
             Your trusted steel supplier since 1979
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-sm md:text-lg text-gray-300 mt-3 md:mt-4"
+          >
+            Radhey raman steel suppliers is one of the leading wholesale 
+            iron/steel supplier providing a huge variety of high grade
+            iron steel materials.
+          </motion.p>
         </div>
       </section>
 
@@ -42,16 +52,18 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl md:text-4xl font-bold text-darkGray mb-4 md:mb-6">Our Story</h2>
               <p className="text-gray-600 text-base md:text-lg mb-3 md:mb-4">
-                Radhey Raman Steel has been serving the construction and industrial sectors for over 45 years. 
-                Founded in 1979, we established ourselves as a trusted authorized dealer of RINL/SAIL steel products.
+                Radhey Raman Steel Suppliers is the authorised dealer of SAIL/RINL in Uttar Pradesh. 
+                It stands as a trusted name in the iron and steel industry, delivering strength, reliability and quality 
+                to the backbone of modern construction and various infrastructure projects.
               </p>
-              <p className="text-gray-600 text-lg mb-4">
+              <p className="text-gray-600 text-base md:text-lg mb-3 md:mb-4">
+                We are a leading wholesale supplier of high grade steel and iron materials serving a wide spectrum of products 
+                with a huge client based network. We ensure that every product meets the highest standards of durability and 
+                building lasting partnership with our clients.
+              </p>
+              <p className="text-gray-600 text-base md:text-lg">
                 Our commitment to quality, reliability, and customer satisfaction has made us a preferred choice 
                 for contractors, builders, and industrial units across Uttar Pradesh and beyond.
-              </p>
-              <p className="text-gray-600 text-lg">
-                We pride ourselves on offering premium steel products at competitive prices with excellent customer service 
-                and timely delivery.
               </p>
             </div>
             <motion.div

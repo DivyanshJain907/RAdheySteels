@@ -38,7 +38,7 @@ export default function ProductCard({
   const handleEmailInquiry = () => {
     const emailSubject = `Inquiry about ${name}`;
     const emailBody = `Hello,\n\nI would like to know more about the following product:\n\nProduct: ${name}\nCategory: ${category}\n\nPlease provide me with details and pricing.\n\nThank you!`;
-    const mailtoURL = `mailto:info@radheyramensteel.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoURL = `mailto:info.rrss.co@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     window.location.href = mailtoURL;
     setShowModal(false);
   };

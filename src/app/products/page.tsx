@@ -79,7 +79,11 @@ export default function ProductsPage() {
             transition={{ delay: 0.2 }}
             className="text-sm md:text-xl text-gray-300"
           >
-            Premium quality steel products from RINL/SAIL
+            Authorised dealer of Sail
+            <h1>Radhey raman steel suppliers is one of the leading wholesale 
+            iron/steel  supplier providing a huge variety of high grade
+            iron steel materials .
+            </h1>
           </motion.p>
         </div>
       </section>
