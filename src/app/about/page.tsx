@@ -17,7 +17,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-5xl font-bold mb-4 md:mb-6"
           >
-            About Radhey Raman Steel
+            About Radhey Raman steel
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: -10 }}
