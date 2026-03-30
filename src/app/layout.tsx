@@ -5,7 +5,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sailtmt.shop"),
   title: "Radhey Raman Steel Suppliers Kanpur - Premium Steel Products",
-  description: "Authorized RINL/SAIL dealer in Kanpur - Premium steel products and solutions since 1979",
+  description: "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh. Premium steel products, competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since 1979.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Radhey Raman Steel Suppliers Kanpur - Premium Steel Products",
-    description: "Authorized RINL/SAIL dealer in Kanpur - Premium steel products and solutions since 1979",
+    description: "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh. Premium steel products, competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since 1979.",
     images: [
       {
         url: "/logo.png",

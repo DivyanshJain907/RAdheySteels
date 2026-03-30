@@ -72,9 +72,9 @@ function Header1() {
                         <Image 
                             src="/logo.png" 
                             alt="Radhey Raman Steels Logo" 
-                            width={120} 
-                            height={120}
-                            className="w-auto h-10 md:h-16"
+                            width={60} 
+                            height={60}
+                            className="w-12 md:w-16 h-auto"
                             priority
                         />
                     </Link>
