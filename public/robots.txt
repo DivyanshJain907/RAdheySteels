@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-Sitemap: https://radhey-steels.vercel.app/sitemap.xml
+Sitemap: https://www.sailtmt.shop/sitemap.xml

@@ -3,7 +3,7 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://radhey-steels.vercel.app"),
+  metadataBase: new URL("https://www.sailtmt.shop"),
   title: "Radhey Raman Steel Suppliers- Premium Steel Products",
   description: "Authorized RINL/SAIL dealer - Premium steel products and solutions since 1979",
   icons: {
