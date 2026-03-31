@@ -30,9 +30,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Radhey Raman Steel Suppliers",
+    "url": "https://www.sailtmt.shop",
+    "logo": "https://www.sailtmt.shop/logo.png",
+    "description": "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh. Premium steel products, competitive prices, fast delivery.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kanpur",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-7905245645"
+  };
+
   return (
     <html lang="en">
       <head>
+        {/* JSON-LD Structured Data for Google Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
+        
         {/* Preload Google Fonts to avoid render blocking */}
         <link
           rel="preconnect"
