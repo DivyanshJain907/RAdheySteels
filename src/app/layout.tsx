@@ -3,7 +3,7 @@ import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.sailtmt.shop"),
+  metadataBase: new URL("https://www.radheyramansteelsuppliers.in"),
   title: "Radhey Raman Steel Suppliers Kanpur - Premium Steel Products",
   description: "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh. Premium steel products, competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since 1979.",
   icons: {
@@ -34,8 +34,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Radhey Raman Steel Suppliers",
-    "url": "https://www.sailtmt.shop",
-    "logo": "https://www.sailtmt.shop/logo.png",
+    "url": "https://www.radheyramansteelsuppliers.in",
+    "logo": "https://www.radheyramansteelsuppliers.in/logo.png",
     "description": "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh. Premium steel products, competitive prices, fast delivery.",
     "address": {
       "@type": "PostalAddress",

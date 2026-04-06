@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 
-Sitemap: https://www.sailtmt.shop/sitemap.xml
+Sitemap: https://www.radheyramansteelsuppliers.in/sitemap.xml
