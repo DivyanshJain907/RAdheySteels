@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo.png",
-        width: 200,
-        height: 200,
-        alt: "Radhey Raman Steels Logo",
+        width: 1200,
+        height: 630,
+        alt: "Radhey Raman Steel Suppliers Logo",
       },
     ],
   },
