@@ -111,7 +111,7 @@ export default function Footer() {
         <div className="border-t border-orange-600 pt-6 md:pt-8 text-center text-xs md:text-sm text-gray-300">
           <p>&copy; 2026 {settings.shopName}. All rights reserved.</p>
           <p className="mt-2">
-            Developed by <a href="https://divyanshjainportfolio.vercel.app" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">Jain Agency</a>
+            Developed by <a href="https://www.thejainagency.shop" target="_blank" rel="noopener noreferrer" className="text-yellow-300 hover:underline">Jain Agency</a>
           </p>
         </div>
       </div>
