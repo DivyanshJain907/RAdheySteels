@@ -1,10 +1,18 @@
 'use client';
 
+import { trackGoogleAdsEvent } from '@/lib/googleAds';
+
 export default function WhatsAppButton() {
   const phoneNumber = '917905245645'; // WhatsApp number: 7905245645 | Alternative: 9389708460
   const message = 'Hello! I am interested in your steel products.';
 
   const handleWhatsAppClick = () => {
+    trackGoogleAdsEvent('contact', {
+      event_category: 'engagement',
+      event_label: 'whatsapp_button_click',
+      method: 'WhatsApp',
+    });
+
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');

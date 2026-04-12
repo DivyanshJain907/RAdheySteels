@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { trackGoogleAdsEvent } from '@/lib/googleAds';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -30,6 +31,10 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        trackGoogleAdsEvent('generate_lead', {
+          event_category: 'engagement',
+          event_label: 'contact_form_submit',
+        });
         setSuccess(true);
         setFormData({ name: '', email: '', phone: '', message: '' });
         setTimeout(() => setSuccess(false), 5000);

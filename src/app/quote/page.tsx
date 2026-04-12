@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Header1 } from '@/components/ui/header';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import { trackGoogleAdsEvent } from '@/lib/googleAds';
 
 export default function QuotePage() {
   const [formData, setFormData] = useState({
@@ -43,6 +44,10 @@ export default function QuotePage() {
       });
 
       if (response.ok) {
+        trackGoogleAdsEvent('generate_lead', {
+          event_category: 'engagement',
+          event_label: 'quote_form_submit',
+        });
         setSubmitted(true);
         setFormData({
           name: '',
