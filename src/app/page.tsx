@@ -139,7 +139,7 @@ export default function Home() {
               Our Products
             </motion.span>
             <h2 className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-gray-700 mt-2">Quality Steel Products</h2>
-            <p className="text-slate-700 text-base md:text-lg">Wide range of premium RINL/SAIL steel products for all your needs</p>
+            <p className="text-slate-700 text-base md:text-lg">Authorised dealer of SAIL/RINL in Uttar Pradesh</p>
           </motion.div>
 
           {/* Product Carousel */}
@@ -173,12 +173,12 @@ export default function Home() {
               >
                 About Us
               </motion.span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mt-2 mb-6">Building Trust Since 1979</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mt-2 mb-6">Building Trust Since Decade</h2>
               <p className="text-slate-700 mb-4 text-base md:text-lg">
                 Radhey Raman Steel is a trusted authorized dealer of RINL/SAIL steel products, serving the construction and industrial sectors for over 45 years.
               </p>
               <p className="text-slate-700 mb-6 text-base md:text-lg">
-                We are committed to providing premium quality steel products at competitive prices with exceptional customer service and timely delivery.
+                Authorised dealer of SAIL/RINL in Uttar Pradesh with competitive prices, exceptional customer service, and timely delivery.
               </p>
               <Link href="/about">
                 <button className="bg-gray-700 hover:bg-orange-500 text-white px-6 md:px-8 py-3 rounded-lg font-bold transition">
@@ -196,7 +196,7 @@ export default function Home() {
                 {[
                   'Authorized RINL/SAIL Dealer',
                   '45+ Years of Experience',
-                  'Premium Quality Products',
+                  'Authorised dealer of SAIL/RINL in Uttar Pradesh',
                   'Fast & Reliable Delivery',
                   'Competitive Pricing',
                   'Expert Customer Support',

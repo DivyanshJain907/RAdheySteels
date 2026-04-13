@@ -59,7 +59,7 @@ export default function Footer() {
             />
             <h3 className="text-white font-bold text-base md:text-lg mb-3 md:mb-4">{settings.shopName}</h3>
             <p className="text-xs md:text-sm text-gray-200">
-              Authorised dealer of RINL/SAIL in UP. The foundation of trust since 1979.
+              Authorised dealer of SAIL/RINL in Uttar Pradesh. The foundation of trust since decade.
             </p>
           </div>
 

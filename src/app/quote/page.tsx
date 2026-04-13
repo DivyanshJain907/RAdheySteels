@@ -265,7 +265,7 @@ export default function QuotePage() {
               {[
                 { title: 'Fast Response', description: 'Get quotes within 24 hours' },
                 { title: 'Competitive Pricing', description: 'Best prices in the market' },
-                { title: 'Quality Assured', description: 'Premium products guaranteed' },
+                { title: 'Quality Assured', description: 'Authorised dealer of SAIL/RINL in Uttar Pradesh' },
               ].map((item, index) => (
                 <div key={index} className="text-center">
                   <div className="text-4xl font-bold text-blue mb-2">✓</div>

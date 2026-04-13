@@ -33,7 +33,7 @@ const testimonials = [
     role: "Project Engineer",
   },
   {
-    text: "Since 1979, they've been the trusted name for quality steel. Their commitment to excellence is evident in every transaction.",
+    text: "Since decade, they've been the trusted name for quality steel. Their commitment to excellence is evident in every transaction.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop",
     name: "Meera Sharma",
     role: "Supply Chain Manager",

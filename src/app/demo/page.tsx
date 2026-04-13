@@ -27,7 +27,7 @@ export default function DemoPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto"
           >
-            Premium quality steel products from authorized RINL/SAIL dealer
+            Authorised dealer of SAIL/RINL in Uttar Pradesh
           </motion.p>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function DemoPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: 'Quality Products', description: 'Premium RINL/SAIL steel products for all needs' },
+              { title: 'Quality Products', description: 'Authorised dealer of SAIL/RINL in Uttar Pradesh' },
               { title: 'Trusted Supplier', description: 'Authorized dealer with years of experience' },
               { title: 'Fast Delivery', description: 'Reliable and timely delivery to your location' },
             ].map((feature, index) => (

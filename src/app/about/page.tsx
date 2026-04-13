@@ -25,7 +25,7 @@ export default function AboutPage() {
             transition={{ delay: 0.2 }}
             className="text-base md:text-xl text-gray-300"
           >
-            Your trusted steel supplier since 1979
+            Your trusted steel supplier since decade
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: -10 }}
@@ -131,7 +131,7 @@ export default function AboutPage() {
           <h2 className="text-2xl md:text-4xl font-bold text-darkGray mb-8 md:mb-12 text-center">Why Choose Us</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {[
-              { title: 'Quality Products', description: 'Premium steel from authorized RINL/SAIL dealers ensuring superior quality' },
+              { title: 'Quality Products', description: 'Authorised dealer of SAIL/RINL in Uttar Pradesh' },
               { title: 'Expert Team', description: 'Knowledgeable staff ready to assist with product selection and specifications' },
               { title: 'Competitive Prices', description: 'Best market rates without compromising on quality' },
               { title: 'Timely Delivery', description: 'Reliable logistics ensuring on-time delivery to your location' },

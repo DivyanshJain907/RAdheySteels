@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
               {
                 name: 'Amit Patel',
                 company: 'Metro Builders',
-                feedback: 'Professional team, premium quality products, and timely delivery. Perfect partnership.'
+                feedback: 'Professional team, Authorised dealer of SAIL/RINL in Uttar Pradesh, and timely delivery. Perfect partnership.'
               },
               {
                 name: 'Suresh Sharma',

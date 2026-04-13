@@ -1,20 +1,66 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+const siteUrl = "https://www.radheyramansteelsuppliers.in";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.radheyramansteelsuppliers.in"),
-  title: "Radhey Raman Steel Suppliers Kanpur",
-  description: "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh.competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since 1979.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
+    template: "%s | Radhey Raman Steel Suppliers",
+  },
+  description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since decade.",
+  applicationName: "Radhey Raman Steel Suppliers",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Radhey Raman Steel Suppliers",
+    "SAIL dealer Uttar Pradesh",
+    "RINL dealer Uttar Pradesh",
+    "steel supplier Kanpur",
+    "TMT bars Kanpur",
+    "MS plates supplier",
+    "steel wholesale Uttar Pradesh",
+  ],
+  authors: [{ name: "Radhey Raman Steel Suppliers" }],
+  creator: "Radhey Raman Steel Suppliers",
+  publisher: "Radhey Raman Steel Suppliers",
+  category: "Steel Supplier",
+  alternates: {
+    canonical: "/",
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "google7335ea3e6df0c5c0",
+  },
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
-    title: "Radhey Raman Steel Suppliers Kanpur",
-    description: "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh.competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since 1979.",
+    type: "website",
+    locale: "en_IN",
+    url: siteUrl,
+    siteName: "Radhey Raman Steel Suppliers",
+    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
+    description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since decade.",
     images: [
       {
         url: "/logo.png",
@@ -24,6 +70,18 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
+    description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery.",
+    images: ["/logo.png"],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#EA580C",
 };
 
 export default function RootLayout({
@@ -33,18 +91,49 @@ export default function RootLayout({
 }) {
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Radhey Raman Steel Suppliers",
-    "url": "https://www.radheyramansteelsuppliers.in",
-    "logo": "https://www.radheyramansteelsuppliers.in/logo.png",
-    "description": "Authorized SAIL/RINL dealer in Kanpur, Uttar Pradesh.competitive prices, fast delivery.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Kanpur",
-      "addressRegion": "Uttar Pradesh",
-      "addressCountry": "IN"
-    },
-    "telephone": "+91-7905245645"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        "name": "Radhey Raman Steel Suppliers",
+        "url": siteUrl,
+        "logo": `${siteUrl}/logo.png`,
+        "description": "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery.",
+        "telephone": "+91-7905245645",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Kanpur",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        },
+        "areaServed": "Uttar Pradesh"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#localbusiness`,
+        "name": "Radhey Raman Steel Suppliers",
+        "url": siteUrl,
+        "image": `${siteUrl}/logo.png`,
+        "description": "Authorised dealer of SAIL/RINL in Uttar Pradesh.",
+        "telephone": "+91-7905245645",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kanpur",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "IN"
+        },
+        "priceRange": "$$"
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        "url": siteUrl,
+        "name": "Radhey Raman Steel Suppliers",
+        "publisher": {
+          "@id": `${siteUrl}/#organization`
+        }
+      }
+    ]
   };
 
   return (

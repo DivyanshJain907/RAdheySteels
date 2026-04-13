@@ -5,7 +5,7 @@ interface DemoProps {
 }
 
 export function ParticleTextDemo({ 
-  customWords = ["RADHEY", "RAMAN", "STEELS", "SINCE", "1979"],
+  customWords = ["RADHEY", "RAMAN", "STEELS", "SINCE", "DECADE"],
   width = 1000,
   height = 500
 }: DemoProps) {
