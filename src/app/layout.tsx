@@ -8,8 +8,8 @@ const siteUrl = "https://www.radheyramansteelsuppliers.in";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
-    template: "%s | Radhey Raman Steel Suppliers",
+    default: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh | STRUCTURALS - TMT- PIPES |",
+    template: "%s | Radhey Raman Steel Suppliers | STRUCTURALS - TMT- PIPES |",
   },
   description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since decade.",
   applicationName: "Radhey Raman Steel Suppliers",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Radhey Raman Steel Suppliers",
-    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
+    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh | STRUCTURALS - TMT- PIPES |",
     description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery. TMT rebars, MS plates, angles, channels - all your steel requirements since decade.",
     images: [
       {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh",
+    title: "Radhey Raman Steel Suppliers | Authorised SAIL/RINL Dealer in Uttar Pradesh | STRUCTURALS - TMT- PIPES |",
     description: "Authorised dealer of SAIL/RINL in Uttar Pradesh. Competitive prices, fast delivery.",
     images: ["/logo.png"],
   },
