@@ -51,9 +51,9 @@ async function getProductsByCategorySlug(categorySlug: string): Promise<{
 export async function generateMetadata({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }): Promise<Metadata> {
-  const slug = params.category;
+  const { category: slug } = await params;
   const { products, displayCategory } = await getProductsByCategorySlug(slug);
 
   if (!products.length) {
@@ -107,9 +107,10 @@ export async function generateMetadata({
 export default async function ProductCategoryPage({
   params,
 }: {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 }) {
-  const { products, displayCategory } = await getProductsByCategorySlug(params.category);
+  const { category } = await params;
+  const { products, displayCategory } = await getProductsByCategorySlug(category);
 
   if (!products.length) {
     notFound();
