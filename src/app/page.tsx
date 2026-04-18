@@ -81,7 +81,7 @@ export default function Home() {
               <Link href="#" className="text-orange-500 hover:underline">For more details - click here</Link>
             </p>
           </div>
-          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-6 md:gap-8 items-center justify-center md:justify-between">
+          <div className="grid grid-cols-2 md:flex md:flex-row gap-4 md:gap-8 items-center justify-center md:justify-between">
             {[
               { name: 'SAIL', src: '/sail-logo.png' },
               { name: 'RINL', src: '/rinl-logo.png' },
@@ -215,6 +215,29 @@ export default function Home() {
       {/* Services Section */}
       {/* Timeline Section */}
       <Timeline />
+
+      {/* Local SEO Content Section */}
+      <section className="py-16 md:py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-700 mb-6">
+            Best Steel Supplier in Kanpur for TMT Bars, MS Angle, MS Channel and Roofing Sheets
+          </h2>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
+            Radhey Raman Steel Suppliers is a trusted steel supplier in Kanpur serving contractors, builders, and industrial buyers.
+            We provide TMT bars, MS angle, MS channel, roofing sheets, pipes, and structural steel with reliable delivery and
+            transparent pricing.
+          </p>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-4">
+            As an authorised dealer associated with Steel Authority of India Limited and Rashtriya Ispat Nigam Limited products,
+            we focus on consistent quality for every project requirement.
+          </p>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            If you are searching for terms like TMT bars supplier in Kanpur, construction steel supplier near me,
+            or iron and steel wholesaler Kanpur, our team can help with product selection, quantity planning,
+            and quick quotation support.
+          </p>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 px-4 bg-gradient-to-r from-gray-700 via-orange-500 to-gray-700">

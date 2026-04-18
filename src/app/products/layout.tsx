@@ -3,16 +3,25 @@ import type { Metadata } from "next";
 const siteUrl = "https://www.radheyramansteelsuppliers.in";
 
 export const metadata: Metadata = {
-  title: "Steel Products | TMT Bars, Structurals, Pipes",
+  title: "TMT Bars Supplier in Kanpur | MS Angle, MS Channel, Roofing Sheets",
   description:
-    "Browse steel products including TMT bars, MS plates, channels, angles, and pipes from Radhey Raman Steel Suppliers in Kanpur.",
+    "Browse TMT bars, MS angle, MS channel, roofing sheets, pipes, and other steel products from a trusted iron and steel wholesaler in Kanpur.",
+  keywords: [
+    "TMT bars supplier in Kanpur",
+    "TMT bars price today Kanpur",
+    "MS angle supplier Kanpur",
+    "MS channel dealer Kanpur",
+    "Roofing sheet supplier Kanpur",
+    "Iron and steel wholesaler Kanpur",
+    "sariya shop in Kanpur",
+  ],
   alternates: {
     canonical: "/products",
   },
   openGraph: {
-    title: "Steel Products | TMT Bars, Structurals, Pipes",
+    title: "TMT Bars Supplier in Kanpur | MS Angle, MS Channel, Roofing Sheets",
     description:
-      "Quality steel products for builders and industries: TMT bars, structurals, MS plates, channels, and pipes.",
+      "Kanpur steel products: TMT bars, MS angle, MS channel, roofing sheets, pipes, and structural steel.",
     url: `${siteUrl}/products`,
     type: "website",
     siteName: "Radhey Raman Steel Suppliers",
@@ -20,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Steel Products | TMT Bars, Structurals, Pipes",
+    title: "TMT Bars Supplier in Kanpur | MS Angle, MS Channel, Roofing Sheets",
     description:
-      "Find quality steel products with competitive pricing and fast delivery.",
+      "Find TMT bars, MS sections, and roofing sheets in Kanpur with competitive pricing.",
     images: ["/logo.png"],
   },
 };

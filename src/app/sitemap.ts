@@ -1,9 +1,12 @@
 import { MetadataRoute } from 'next';
+import dbConnect from '@/lib/mongodb';
+import { Product } from '@/models/Product';
+import { toCategorySlug } from '@/lib/categorySeo';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.radheyramansteelsuppliers.in';
 
-  return [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
       lastModified: new Date(),
@@ -47,4 +50,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
   ];
+
+  try {
+    await dbConnect();
+
+    const categoryValues: string[] = await Product.distinct('category');
+    const uniqueCategorySlugs = Array.from(
+      new Set(
+        categoryValues
+          .map((category) => toCategorySlug(String(category || '')))
+          .filter(Boolean)
+      )
+    );
+
+    const categoryRoutes: MetadataRoute.Sitemap = uniqueCategorySlugs.map((slug) => ({
+      url: `${baseUrl}/products/category/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    }));
+
+    return [...staticRoutes, ...categoryRoutes];
+  } catch {
+    return staticRoutes;
+  }
 }

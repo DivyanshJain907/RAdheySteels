@@ -6,6 +6,7 @@ import { Header1 } from '@/components/ui/header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
+import { toCategorySlug } from '@/lib/categorySeo';
 
 interface Product {
   _id: string;
@@ -115,6 +116,23 @@ export default function ProductsPage() {
                     {category}
                   </motion.button>
                 ))}
+              </div>
+
+              <div className="mt-6">
+                <p className="text-sm font-semibold text-gray-600 mb-3">Browse category pages:</p>
+                <div className="flex flex-wrap gap-3">
+                  {categories
+                    .filter((category) => category !== 'All')
+                    .map((category) => (
+                      <Link
+                        key={`link-${category}`}
+                        href={`/products/category/${toCategorySlug(category)}`}
+                        className="text-sm text-orange-600 hover:text-orange-700 hover:underline"
+                      >
+                        {category}
+                      </Link>
+                    ))}
+                </div>
               </div>
             </motion.div>
           )}

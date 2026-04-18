@@ -3,16 +3,23 @@ import type { Metadata } from "next";
 const siteUrl = "https://www.radheyramansteelsuppliers.in";
 
 export const metadata: Metadata = {
-  title: "Steel Supply Services in Kanpur | Radhey Raman Steel Suppliers",
+  title: "Construction Steel Supplier Near Me | Steel Services in Kanpur",
   description:
-    "Explore steel supply services including TMT bars, structurals, pipes, bulk supply, and consultation in Kanpur and across Uttar Pradesh.",
+    "Explore steel supply services in Kanpur including TMT bars, MS angle, MS channel, structurals, roofing sheets, and bulk project delivery from an authorised SAIL/RINL dealer.",
+  keywords: [
+    "Construction steel supplier near me",
+    "steel supplier in Kanpur",
+    "MS steel supplier near me",
+    "building material supplier Kanpur",
+    "RINL steel distributor near me",
+  ],
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Steel Supply Services in Kanpur | Radhey Raman Steel Suppliers",
+    title: "Construction Steel Supplier Near Me | Steel Services in Kanpur",
     description:
-      "TMT bars, structurals, pipes, and bulk steel supply services for residential, commercial, and industrial projects.",
+      "Kanpur steel supply services for TMT bars, MS angle, MS channel, roofing sheets, and bulk requirements.",
     url: `${siteUrl}/services`,
     type: "website",
     siteName: "Radhey Raman Steel Suppliers",
@@ -20,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Steel Supply Services in Kanpur | Radhey Raman Steel Suppliers",
+    title: "Construction Steel Supplier Near Me | Steel Services in Kanpur",
     description:
-      "Bulk steel supply and consultation services in Kanpur and Uttar Pradesh.",
+      "Steel services in Kanpur for construction projects with fast supply and competitive rates.",
     images: ["/logo.png"],
   },
 };
