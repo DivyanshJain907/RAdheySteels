@@ -27,9 +27,6 @@ export const metadata: Metadata = {
   creator: "Radhey Raman Steel Suppliers",
   publisher: "Radhey Raman Steel Suppliers",
   category: "Steel Supplier",
-  alternates: {
-    canonical: "/",
-  },
   formatDetection: {
     email: false,
     address: false,
@@ -116,6 +113,7 @@ export default function RootLayout({
         "image": `${siteUrl}/logo.png`,
         "description": "Authorised dealer of SAIL/RINL in Uttar Pradesh.",
         "telephone": "+91-7905245645",
+        "areaServed": "Uttar Pradesh",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Kanpur",
@@ -129,6 +127,11 @@ export default function RootLayout({
         "@id": `${siteUrl}/#website`,
         "url": siteUrl,
         "name": "Radhey Raman Steel Suppliers",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${siteUrl}/products?search={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        },
         "publisher": {
           "@id": `${siteUrl}/#organization`
         }
