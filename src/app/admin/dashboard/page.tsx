@@ -325,6 +325,11 @@ function ProductsTab() {
 function ContactsTab() {
   const [contacts, setContacts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [savingId, setSavingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const statusOptions = ['new', 'contacted', 'quoted', 'won', 'lost'];
+  const priorityOptions = ['low', 'medium', 'high'];
 
   useEffect(() => {
     fetchContacts();
@@ -349,9 +354,88 @@ function ContactsTab() {
     }
   };
 
+  const handleContactFieldChange = (id: string, field: string, value: any) => {
+    setContacts((prev) =>
+      prev.map((contact) =>
+        contact._id === id
+          ? {
+              ...contact,
+              [field]: value,
+            }
+          : contact
+      )
+    );
+  };
+
+  const handleSaveContact = async (contact: any) => {
+    const token = localStorage.getItem('adminToken');
+    setSavingId(contact._id);
+
+    try {
+      const response = await fetch(`/api/contacts/${contact._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-secret': token || '',
+        },
+        body: JSON.stringify({
+          seen: contact.seen,
+          status: contact.status || 'new',
+          priority: contact.priority || 'medium',
+          notes: contact.notes || '',
+          followUpAt: contact.followUpAt || null,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(`Failed to save lead update: ${errorData.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      console.error('Error updating contact:', error);
+      alert('Failed to save lead update.');
+    } finally {
+      setSavingId(null);
+    }
+  };
+
+  const handleDeleteContact = async (id: string) => {
+    const token = localStorage.getItem('adminToken');
+    const shouldDelete = window.confirm('Are you sure you want to delete this lead?');
+
+    if (!shouldDelete) {
+      return;
+    }
+
+    setDeletingId(id);
+
+    try {
+      const response = await fetch(`/api/contacts/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-secret': token || '',
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(`Failed to delete lead: ${errorData.error || 'Unknown error'}`);
+        return;
+      }
+
+      setContacts((prev) => prev.filter((contact) => contact._id !== id));
+    } catch (error) {
+      console.error('Error deleting contact:', error);
+      alert('Failed to delete lead.');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-8 text-black">Contact Messages</h2>
+      <h2 className="text-3xl font-bold mb-2 text-black">Leads & Contact Messages</h2>
+      <p className="text-gray-600 mb-8">Track lead stage, priority, follow-up and notes from one place.</p>
 
       {loading ? (
         <div className="text-center py-20 text-gray-600">Loading...</div>
@@ -372,7 +456,91 @@ function ContactsTab() {
                   {new Date(contact.createdAt).toLocaleDateString()}
                 </span>
               </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">Lead Stage</label>
+                  <select
+                    value={contact.status || 'new'}
+                    onChange={(e) => handleContactFieldChange(contact._id, 'status', e.target.value)}
+                    className="w-full px-3 py-2 rounded border border-gray-300 bg-white text-gray-800"
+                  >
+                    {statusOptions.map((status) => (
+                      <option key={status} value={status}>
+                        {status}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">Priority</label>
+                  <select
+                    value={contact.priority || 'medium'}
+                    onChange={(e) => handleContactFieldChange(contact._id, 'priority', e.target.value)}
+                    className="w-full px-3 py-2 rounded border border-gray-300 bg-white text-gray-800"
+                  >
+                    {priorityOptions.map((priority) => (
+                      <option key={priority} value={priority}>
+                        {priority}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">Follow-up Date</label>
+                  <input
+                    type="date"
+                    value={contact.followUpAt ? new Date(contact.followUpAt).toISOString().slice(0, 10) : ''}
+                    onChange={(e) =>
+                      handleContactFieldChange(contact._id, 'followUpAt', e.target.value ? new Date(e.target.value).toISOString() : null)
+                    }
+                    className="w-full px-3 py-2 rounded border border-gray-300 bg-white text-gray-800"
+                  />
+                </div>
+
+                <div className="flex items-end">
+                  <label className="flex items-center gap-2 text-sm text-gray-700">
+                    <input
+                      type="checkbox"
+                      checked={Boolean(contact.seen)}
+                      onChange={(e) => handleContactFieldChange(contact._id, 'seen', e.target.checked)}
+                    />
+                    Mark as Seen
+                  </label>
+                </div>
+              </div>
+
               <p className="text-gray-700">{contact.message}</p>
+
+              <div className="mt-4">
+                <label className="block text-xs text-gray-500 mb-1">Internal Notes</label>
+                <textarea
+                  value={contact.notes || ''}
+                  onChange={(e) => handleContactFieldChange(contact._id, 'notes', e.target.value)}
+                  className="w-full px-3 py-2 rounded border border-gray-300 bg-white text-gray-800 resize-none"
+                  rows={3}
+                  placeholder="Add follow-up details, quote notes, or customer requirements"
+                />
+              </div>
+
+              <div className="mt-4 flex justify-end gap-2">
+                <button
+                  onClick={() => handleDeleteContact(contact._id)}
+                  disabled={deletingId === contact._id}
+                  className="bg-slate-700 text-white px-5 py-2 rounded hover:bg-slate-800 transition disabled:opacity-60"
+                >
+                  {deletingId === contact._id ? 'Deleting...' : 'Delete'}
+                </button>
+                <button
+                  onClick={() => handleSaveContact(contact)}
+                  disabled={savingId === contact._id}
+                  className="bg-orange-500 text-white px-5 py-2 rounded hover:bg-orange-600 transition disabled:opacity-60"
+                >
+                  {savingId === contact._id ? 'Saving...' : 'Save Lead Update'}
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

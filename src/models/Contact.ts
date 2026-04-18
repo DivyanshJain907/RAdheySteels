@@ -7,6 +7,18 @@ const ContactSchema = new mongoose.Schema(
     phone: { type: String },
     message: { type: String, required: true },
     seen: { type: Boolean, default: false },
+    status: {
+      type: String,
+      enum: ['new', 'contacted', 'quoted', 'won', 'lost'],
+      default: 'new',
+    },
+    priority: {
+      type: String,
+      enum: ['low', 'medium', 'high'],
+      default: 'medium',
+    },
+    notes: { type: String, default: '' },
+    followUpAt: { type: Date, default: null },
   },
   { timestamps: true }
 );
