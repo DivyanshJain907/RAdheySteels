@@ -19,6 +19,14 @@ interface Product {
 }
 
 export default function ProductsPage() {
+  const excludedBrowseCategories = new Set([
+    'ROUND',
+    'PROFILE SHEET',
+    'STEEL PLATES',
+    'STRUCTURALS',
+    'TMT',
+  ]);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -80,11 +88,9 @@ export default function ProductsPage() {
             transition={{ delay: 0.2 }}
             className="text-sm md:text-xl text-gray-300"
           >
-            Authorised dealer of Sail
-            <h1>Radhey raman steel suppliers is one of the leading wholesale 
-            iron/steel  supplier providing a huge variety of high grade
-            iron steel materials .
-            </h1>
+            Authorised dealer of Sail. Radhey Raman Steel Suppliers is one of the
+            leading wholesale iron and steel suppliers, providing a huge variety of
+            high-grade iron and steel materials.
           </motion.p>
         </div>
       </section>
@@ -122,7 +128,7 @@ export default function ProductsPage() {
                 <p className="text-sm font-semibold text-gray-600 mb-3">Browse category pages:</p>
                 <div className="flex flex-wrap gap-3">
                   {categories
-                    .filter((category) => category !== 'All')
+                    .filter((category) => category !== 'All' && !excludedBrowseCategories.has(category))
                     .map((category) => (
                       <Link
                         key={`link-${category}`}
