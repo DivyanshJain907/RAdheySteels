@@ -6,7 +6,7 @@ import ProductCard from "@/components/ProductCard";
 import { Header1 } from "@/components/ui/header";
 import dbConnect from "@/lib/mongodb";
 import { Product } from "@/models/Product";
-import { toCategorySlug, toTitleCase } from "@/lib/categorySeo";
+import { isCategorySlugMatch, toCategorySlug, toTitleCase } from "@/lib/categorySeo";
 
 const siteUrl = "https://www.radheyramansteelsuppliers.in";
 
@@ -23,15 +23,22 @@ interface ProductItem {
 async function getProductsByCategorySlug(categorySlug: string): Promise<{
   products: ProductItem[];
   displayCategory: string;
+  resolvedSlug: string;
 }> {
   await dbConnect();
 
-  const rawProducts = await Product.find({ inStock: true })
+  const normalizedSlug = toCategorySlug(decodeURIComponent(categorySlug));
+
+  const rawProducts = await Product.find({ category: { $exists: true, $ne: "" } })
     .sort({ createdAt: -1 })
     .lean();
 
   const products = rawProducts
-    .filter((item: any) => toCategorySlug(String(item.category || "")) === categorySlug)
+    .filter(
+      (item: any) =>
+        item?.inStock !== false &&
+        isCategorySlugMatch(normalizedSlug, String(item.category || ""))
+    )
     .map((item: any) => ({
       _id: String(item._id),
       name: String(item.name),
@@ -44,8 +51,11 @@ async function getProductsByCategorySlug(categorySlug: string): Promise<{
 
   const displayCategory =
     products[0]?.category || toTitleCase(categorySlug.replace(/-/g, " "));
+  const resolvedSlug = products[0]
+    ? toCategorySlug(String(products[0].category || ""))
+    : normalizedSlug;
 
-  return { products, displayCategory };
+  return { products, displayCategory, resolvedSlug };
 }
 
 export async function generateMetadata({
@@ -53,8 +63,9 @@ export async function generateMetadata({
 }: {
   params: Promise<{ category: string }>;
 }): Promise<Metadata> {
-  const { category: slug } = await params;
-  const { products, displayCategory } = await getProductsByCategorySlug(slug);
+  const { category } = await params;
+  const slug = toCategorySlug(decodeURIComponent(category));
+  const { products, displayCategory, resolvedSlug } = await getProductsByCategorySlug(slug);
 
   if (!products.length) {
     const fallbackTitle = `${toTitleCase(slug.replace(/-/g, " "))} Products`;
@@ -73,7 +84,7 @@ export async function generateMetadata({
   const productCount = products.length;
   const title = `${displayCategory} Supplier in Kanpur | ${productCount}+ Products`;
   const description = `Buy ${displayCategory} in Kanpur from Radhey Raman Steel Suppliers. Authorised dealer associated with Steel Authority of India Limited and Rashtriya Ispat Nigam Limited products.`;
-  const canonicalPath = `/products/category/${slug}`;
+  const canonicalPath = `/products/category/${resolvedSlug}`;
 
   return {
     title,
@@ -110,7 +121,8 @@ export default async function ProductCategoryPage({
   params: Promise<{ category: string }>;
 }) {
   const { category } = await params;
-  const { products, displayCategory } = await getProductsByCategorySlug(category);
+  const slug = toCategorySlug(decodeURIComponent(category));
+  const { products, displayCategory } = await getProductsByCategorySlug(slug);
 
   if (!products.length) {
     notFound();
