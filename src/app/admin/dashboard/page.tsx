@@ -95,6 +95,8 @@ function ProductsTab() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('all');
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -194,6 +196,23 @@ function ProductsTab() {
     setShowForm(true);
   };
 
+  const categories = Array.from(
+    new Set(products.map((product) => String(product.category || '').trim()).filter(Boolean))
+  ).sort((a, b) => a.localeCompare(b));
+
+  const filteredProducts = products.filter((product) => {
+    const name = String(product.name || '').toLowerCase();
+    const category = String(product.category || '').toLowerCase();
+    const search = searchTerm.trim().toLowerCase();
+
+    const searchMatch = !search || name.includes(search) || category.includes(search);
+    const categoryMatch =
+      categoryFilter === 'all' ||
+      String(product.category || '').trim().toLowerCase() === categoryFilter.toLowerCase();
+
+    return searchMatch && categoryMatch;
+  });
+
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
@@ -284,11 +303,38 @@ function ProductsTab() {
         </motion.div>
       )}
 
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by product name or category"
+            className="md:col-span-2 px-4 py-2 rounded border border-gray-300 bg-white text-gray-800"
+          />
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="px-4 py-2 rounded border border-gray-300 bg-white text-gray-800"
+          >
+            <option value="all">All categories</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+        <p className="text-sm text-gray-600 mt-3">
+          Showing {filteredProducts.length} of {products.length} products
+        </p>
+      </div>
+
       {loading ? (
         <div className="text-center py-20 text-gray-600">Loading...</div>
-      ) : products.length > 0 ? (
+      ) : filteredProducts.length > 0 ? (
         <div className="space-y-4">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <motion.div
               key={product._id}
               className="bg-white rounded-lg p-4 flex justify-between items-center border border-gray-200 shadow-sm"
@@ -327,6 +373,9 @@ function ContactsTab() {
   const [loading, setLoading] = useState(true);
   const [savingId, setSavingId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [priorityFilter, setPriorityFilter] = useState('all');
 
   const statusOptions = ['new', 'contacted', 'quoted', 'won', 'lost'];
   const priorityOptions = ['low', 'medium', 'high'];
@@ -432,16 +481,148 @@ function ContactsTab() {
     }
   };
 
+  const exportContactsCsv = () => {
+    if (!contacts.length) {
+      return;
+    }
+
+    const headers = [
+      'Name',
+      'Email',
+      'Phone',
+      'Status',
+      'Priority',
+      'Seen',
+      'FollowUpAt',
+      'CreatedAt',
+      'Message',
+      'Notes',
+    ];
+
+    const escapeCell = (value: any) => `"${String(value ?? '').replace(/"/g, '""')}"`;
+
+    const rows = contacts.map((contact) => [
+      contact.name,
+      contact.email,
+      contact.phone || '',
+      contact.status || 'new',
+      contact.priority || 'medium',
+      Boolean(contact.seen) ? 'yes' : 'no',
+      contact.followUpAt ? new Date(contact.followUpAt).toISOString() : '',
+      contact.createdAt ? new Date(contact.createdAt).toISOString() : '',
+      contact.message || '',
+      contact.notes || '',
+    ]);
+
+    const csv = [headers, ...rows]
+      .map((row) => row.map(escapeCell).join(','))
+      .join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `leads-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const filteredContacts = contacts.filter((contact) => {
+    const search = searchTerm.trim().toLowerCase();
+    const name = String(contact.name || '').toLowerCase();
+    const email = String(contact.email || '').toLowerCase();
+    const phone = String(contact.phone || '').toLowerCase();
+
+    const searchMatch = !search || name.includes(search) || email.includes(search) || phone.includes(search);
+    const statusMatch = statusFilter === 'all' || (contact.status || 'new') === statusFilter;
+    const priorityMatch = priorityFilter === 'all' || (contact.priority || 'medium') === priorityFilter;
+
+    return searchMatch && statusMatch && priorityMatch;
+  });
+
+  const pipelineStats = {
+    total: contacts.length,
+    new: contacts.filter((c) => (c.status || 'new') === 'new').length,
+    quoted: contacts.filter((c) => c.status === 'quoted').length,
+    won: contacts.filter((c) => c.status === 'won').length,
+  };
+
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-2 text-black">Leads & Contact Messages</h2>
-      <p className="text-gray-600 mb-8">Track lead stage, priority, follow-up and notes from one place.</p>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-2">
+        <h2 className="text-3xl font-bold text-black">Leads & Contact Messages</h2>
+        <button
+          onClick={exportContactsCsv}
+          className="bg-slate-700 text-white px-4 py-2 rounded hover:bg-slate-800 transition text-sm font-semibold"
+        >
+          Export CSV
+        </button>
+      </div>
+      <p className="text-gray-600 mb-6">Track lead stage, priority, follow-up and notes from one place.</p>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
+          <p className="text-xs text-gray-500">Total Leads</p>
+          <p className="text-xl font-bold text-gray-900">{pipelineStats.total}</p>
+        </div>
+        <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+          <p className="text-xs text-blue-600">New</p>
+          <p className="text-xl font-bold text-blue-700">{pipelineStats.new}</p>
+        </div>
+        <div className="bg-yellow-50 border border-yellow-100 rounded-lg p-3">
+          <p className="text-xs text-yellow-700">Quoted</p>
+          <p className="text-xl font-bold text-yellow-800">{pipelineStats.quoted}</p>
+        </div>
+        <div className="bg-green-50 border border-green-100 rounded-lg p-3">
+          <p className="text-xs text-green-700">Won</p>
+          <p className="text-xl font-bold text-green-800">{pipelineStats.won}</p>
+        </div>
+      </div>
+
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search by name, email, or phone"
+            className="md:col-span-2 px-4 py-2 rounded border border-gray-300 bg-white text-gray-800"
+          />
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="px-4 py-2 rounded border border-gray-300 bg-white text-gray-800"
+          >
+            <option value="all">All stages</option>
+            {statusOptions.map((status) => (
+              <option key={status} value={status}>
+                {status}
+              </option>
+            ))}
+          </select>
+          <select
+            value={priorityFilter}
+            onChange={(e) => setPriorityFilter(e.target.value)}
+            className="px-4 py-2 rounded border border-gray-300 bg-white text-gray-800"
+          >
+            <option value="all">All priorities</option>
+            {priorityOptions.map((priority) => (
+              <option key={priority} value={priority}>
+                {priority}
+              </option>
+            ))}
+          </select>
+        </div>
+        <p className="text-sm text-gray-600 mt-3">
+          Showing {filteredContacts.length} of {contacts.length} leads
+        </p>
+      </div>
 
       {loading ? (
         <div className="text-center py-20 text-gray-600">Loading...</div>
-      ) : contacts.length > 0 ? (
+      ) : filteredContacts.length > 0 ? (
         <div className="space-y-4">
-          {contacts.map((contact) => (
+          {filteredContacts.map((contact) => (
             <motion.div
               key={contact._id}
               className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition"
